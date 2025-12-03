@@ -50,7 +50,7 @@ const QuemSomos = () => {
             </h1>
             <p className="text-xl text-primary-foreground/80">
               Somos um grupo empresarial angolano líder, comprometido com a excelência 
-              e o desenvolvimento sustentável do país há mais de três décadas.
+              e o desenvolvimento sustentável do país há mais de uma década.
             </p>
           </div>
         </div>
@@ -64,19 +64,19 @@ const QuemSomos = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Um Legado de Excelência
               </h2>
-              <p className="text-muted-foreground mb-4">
-                Fundado em 1989, o Grupo SANEP nasceu com a visão de contribuir para o 
+              <p className="text-muted-foreground mb-4 texto-justificado">
+                Fundado em 2013, o Grupo SANEP nasceu com a visão de contribuir para o 
                 desenvolvimento económico de Angola através da diversificação empresarial 
                 e da criação de valor sustentável.
               </p>
-              <p className="text-muted-foreground mb-4">
-                Ao longo das últimas três décadas, expandimos as nossas operações para 
-                múltiplos setores estratégicos, incluindo agricultura, distribuição, 
-                farmacêutica, finanças, indústria e serviços.
+              <p className="text-muted-foreground mb-4 texto-justificado">
+                Ao longo dos anos, expandimos as nossas operações para 
+                múltiplos sectores estratégicos, incluindo agricultura, distribuição, 
+                farmacêutica, finanças, imobiliária, indústria e serviços.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Hoje, somos reconhecidos como um dos maiores grupos empresariais privados 
-                de Angola, com presença em 8 países e mais de 5.000 colaboradores dedicados 
+                de Angola, com presença em 8 países e mais de 500 colaboradores dedicados 
                 à nossa missão de excelência.
               </p>
             </div>
@@ -87,7 +87,7 @@ const QuemSomos = () => {
                 className="rounded-xl shadow-xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-secondary text-secondary-foreground p-6 rounded-xl shadow-lg">
-                <div className="text-4xl font-bold">35+</div>
+                <div className="text-4xl font-bold">+10</div>
                 <div className="text-sm">Anos de História</div>
               </div>
             </div>
@@ -105,10 +105,8 @@ const QuemSomos = () => {
                 <Target size={28} />
               </div>
               <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Missão</h3>
-              <p className="text-muted-foreground">
-                Criar valor sustentável para os nossos stakeholders através da 
-                excelência operacional, inovação e compromisso com o desenvolvimento 
-                das comunidades onde operamos.
+              <p className="text-muted-foreground texto-justificado">
+              Desenvolver negócios e produtos com padrões de excelência internacional, que agreguem valor económico e social duradouros e contribuam para o desenvolvimento sustentável das comunidades.
               </p>
             </div>
 
@@ -118,10 +116,8 @@ const QuemSomos = () => {
                 <Globe size={28} />
               </div>
               <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Visão</h3>
-              <p className="text-muted-foreground">
-                Ser reconhecido como o grupo empresarial de referência em África, 
-                pela nossa capacidade de inovação, excelência e contribuição para 
-                o desenvolvimento sustentável.
+              <p className="text-muted-foreground texto-justificado">
+              Ser um Grupo Multinacional, culturalmente coeso e em continua transformação em direcção ao progresso e a excelência.
               </p>
             </div>
 
@@ -131,7 +127,7 @@ const QuemSomos = () => {
                 <Award size={28} />
               </div>
               <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Reconhecimento</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Premiados múltiplas vezes como melhor empregador, empresa mais 
                 inovadora e líder em responsabilidade social corporativa em Angola.
               </p>
@@ -171,7 +167,7 @@ const QuemSomos = () => {
               Qualidade Certificada
             </span>
             <h2 className="text-3xl font-serif font-bold text-foreground mt-2">
-              Certificações e Acreditações
+              Certificações em curso
             </h2>
           </div>
           

@@ -191,3 +191,68 @@
   .delay-500 { animation-delay: 500ms; }
 }
 
+
+/* Estilos base */
+.logo-empresas {
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+/* Estilos individuais */
+.logo-agroawa {
+  margin: 0 auto !important;
+  width: 50% !important;
+  height: auto !important;
+}
+
+.logo-cooperativa {
+  width: 50% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.logo-crediangolar {
+  width: 40% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.logo-fazenda {
+  width: 60% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.logo-fibrex {
+  margin: 0 auto !important;
+}
+
+.logo-food-factory {
+  margin: 0 auto !important;
+}
+
+.logo-regadio {
+  margin: 0 auto !important;
+}
+
+.logo-sanep-lda {
+  width: 50% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.logo-sanep-nutricao {
+  width: 70% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.logo-sanep-vida {
+  width: 20% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.texto-justificado {
+  text-align: justify !important;
+}

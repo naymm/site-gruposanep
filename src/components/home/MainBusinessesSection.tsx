@@ -1,6 +1,7 @@
+
+
 import { Link } from "react-router-dom";
 
-// IMAGENS DAS EMPRESAS:
 import agroawa from "../../img/empresas/agroawa.png";
 import cooperativa from "../../img/empresas/cooperativa.png";
 import crediangolar from "../../img/empresas/crediangolar.png";
@@ -12,150 +13,245 @@ import saneplda from "../../img/empresas/sanep-lda.png";
 import sanepnutricao from "../../img/empresas/sanep-nutricao.png";
 import sanepvida from "../../img/empresas/sanep-vida.png";
 
+type HighlightSize = "large" | "medium" | "normal";
+
 interface MainBusinessProps {
   image: string;
-  logo: string; // agora recebe a imagem importada
+  logo: string;
   href?: string;
   index: number;
+  name: string;
+  category?: string;
+  percent?: string;
+  size?: HighlightSize;
 }
 
-const MainBusinessCard = ({ image, logo, href, index }: MainBusinessProps) => {
+const MainBusinessCard = ({
+  image,
+  logo,
+  href,
+  index,
+  name,
+  category,
+  percent,
+  size = "normal",
+}: MainBusinessProps) => {
+  // Alturas coerentes para evitar “buracos”
+  const heightClass =
+    size === "large"
+      ? "h-[260px] md:h-[320px] lg:h-[360px]" // altura da faixa de destaques
+      : size === "medium"
+      ? "h-[124px] md:h-[154px] lg:h-[172px]"  // ~metade da grande, ajustado ao gap da coluna
+      : "h-[160px] md:h-[200px] lg:h-[220px]"; // demais cartões
+
   const content = (
     <div
-      className="relative group overflow-hidden rounded-xl aspect-[4/3] bg-cover bg-center cursor-pointer"
+      className={`relative group overflow-hidden rounded-xl bg-cover bg-center cursor-pointer ${heightClass}`}
       style={{ backgroundImage: `url(${image})` }}
     >
-      {/* Overlay gradient */}
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[#222222] via-[#222222]/90 to-[#222222]/40 
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#222222] via-[#222222]/90 to-[#222222]/40 
         group-hover:from-[#222222] group-hover:via-[#222222]/95 group-hover:to-[#222222]/50 
         transition-all duration-300"
       />
 
-      {/* Logo em imagem */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+      {/* Categoria */}
+      {category && (
+        <div className="absolute top-4 left-4 z-10">
+          <span className="text-xs md:text-sm uppercase tracking-wide text-white/80">
+            
+          </span>
+        </div>
+      )}
+
+      {/* Rodapé */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 z-10">
         <img
           src={logo}
-          alt="Logo da empresa"
-          className="h-12 md:h-14 w-auto drop-shadow-lg brightness-0 invert"
+          alt={name}
+          className={`h-12 md:h-14 w-auto drop-shadow-lg logo-empresas 
+            logo-${name.toLowerCase().replace(/\s/g, "-")}`}
         />
+        <div className="mt-3 flex items-center justify-between">
+          <span className="text-xs md:text-sm uppercase text-white/80">
+           
+          </span>
+          {percent && (
+            <span className="text-xs md:text-sm font-semibold text-white/90">
+              {percent}
+            </span>
+          )}
+        </div>
       </div>
 
-      {/* Hover effect */}
+      {/* Hover efeito */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute inset-0 bg-white/5" />
       </div>
     </div>
   );
 
-  if (href) {
-    return (
-      <Link
-        to={href}
-        className="block animate-fade-in-up"
-        style={{ animationDelay: `${index * 100}ms` }}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return (
+  const wrapper = (
     <div
-      className="animate-fade-in-up"
+      className="animate-fade-in-up w-full"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {content}
     </div>
   );
+
+  return href ? (
+    <Link to={href} className="block w-full">
+      {wrapper}
+    </Link>
+  ) : (
+    wrapper
+  );
 };
 
 const MainBusinessesSection = () => {
+  // Três destaques: [grande, médio, médio]
+  const FEATURED_INDICES = [0, 1, 2];
+
   const businesses = [
     {
       image:
-        "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1600&q=80",
       logo: agroawa,
-      href: "/negocios/farmaceutica",
+      name: "Agroawa",
+      href: "/negocios/agroawa",
+      category: "Retalho Alimentar, Saúde e Bem-estar",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80",
       logo: cooperativa,
-      href: "/negocios/financas",
+      name: "Cooperativa",
+      href: "/negocios/cooperativa",
+      category: "Eletrónica",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1600&q=80",
       logo: crediangolar,
-      href: "/negocios/agricultura",
+      name: "Crediangolar",
+      href: "/negocios/crediangolar",
+      category: "Serviços Financeiros",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1600&q=80",
       logo: fazenda,
-      href: "/negocios/agricultura",
+      name: "Fazenda",
+      href: "/negocios/fazenda",
+      category: "Agronegócio",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=1600&q=80",
       logo: fibrex,
-      href: "/negocios/agricultura",
+      name: "Fibrex",
+      href: "/negocios/fibrex",
+      category: "Materiais",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
       logo: food,
-      href: "/negocios/servicos",
+      name: "Food Factory",
+      href: "/negocios/food-factory",
+      category: "Indústria Alimentar",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
       logo: regadio,
-      href: "/negocios/servicos",
+      name: "Regadio",
+      href: "/negocios/regadio",
+      category: "Infraestruturas",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
       logo: saneplda,
-      href: "/negocios/servicos",
+      name: "Sanep Lda",
+      href: "/negocios/sanep-lda",
+      category: "Serviços",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
       logo: sanepnutricao,
-      href: "/negocios/servicos",
+      name: "Sanep Nutrição",
+      href: "/negocios/sanep-nutricao",
+      category: "Nutrição",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
       logo: sanepvida,
-      href: "/negocios/servicos",
+      name: "Sanep Vida",
+      href: "/negocios/sanep-vida",
+      category: "Cuidados e Bem-estar",
     },
   ];
+
+  const [firstFeatured, secondFeatured, thirdFeatured] = FEATURED_INDICES.map(
+    (i) => businesses[i]
+  );
+  const others = businesses.filter((_, idx) => !FEATURED_INDICES.includes(idx));
 
   return (
     <section className="section-padding bg-background">
       <div className="container-wide">
-        {/* Title */}
+        {/* Título */}
         <div className="mb-12">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
               Principais Negócios
             </h2>
-            <div className="flex-1 h-px" style={{ backgroundColor: "#222222" }} />
+            <div className="flex-1 h-px bg-[#222222]" />
           </div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {businesses.map((business, index) => (
-            <MainBusinessCard key={index} {...business} index={index} />
+        {/* 3 destaques sem buracos */}
+        <div className="flex flex-col lg:flex-row gap-6 mb-8">
+          {/* Esquerda: 1 grande com altura fixa no desktop */}
+          <div className="lg:basis-1/2">
+            <MainBusinessCard {...firstFeatured} index={0} size="large" />
+          </div>
+
+          {/* Direita: coluna com 2 médios que somam a altura do grande */}
+          <div className="lg:basis-1/2 flex flex-col gap-6 lg:h-[360px]">
+            {/* Cada um ocupa metade da coluna */}
+            <div className="flex-1 min-h-0">
+              <MainBusinessCard {...secondFeatured} index={1} size="medium" />
+            </div>
+            <div className="flex-1 min-h-0">
+              <MainBusinessCard {...thirdFeatured} index={2} size="medium" />
+            </div>
+          </div>
+        </div>
+
+        {/* Grade dos demais — larguras com calc considerando gap-6 (24px) */}
+        <div className="flex flex-wrap gap-6">
+          {others.map((business, i) => (
+            <div
+              key={business.name}
+              className="
+                w-full 
+                sm:flex-[1_1_calc(50%_-_12px)]        /* 2 colunas (gap-6/2) */
+                lg:flex-[1_1_calc(33.333%_-_16px)]    /* 3 colunas (aprox. distribuição do gap) */
+              "
+            >
+              <MainBusinessCard {...business} index={i + 3} size="normal" />
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 };
+
 
 export default MainBusinessesSection;

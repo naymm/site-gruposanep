@@ -1,27 +1,40 @@
 import Layout from "@/components/layout/Layout";
 import { User, Users, Building2 } from "lucide-react";
 
+// CONSELHO DE ADMINISTRAÇÃO
+import luisTroso from "../../img/pessoas/luis-troso.png";
+import ailtonSilva from "../../img/pessoas/ailton-silva.png";
+import euclidesLuis from "../../img/pessoas/euclides-luis.png";
+
+// DIREÇÃO EXECUTIVA
+import anisio from "../../img/pessoas/anisio.webp";
+import nestor from "../../img/pessoas/nestor.webp";
+import paulo from "../../img/pessoas/paulo.webp";
+import policarpo from "../../img/pessoas/policarpo.webp";
+import vladimir from "../../img/pessoas/vladimir.webp";
+
 const Organograma = () => {
   const conselho = [
-    { name: "António Manuel Santos", role: "Presidente do Conselho de Administração", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
-    { name: "Maria Helena Costa", role: "Vice-Presidente", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
-    { name: "João Pedro Ferreira", role: "Administrador Executivo", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
+    { name: "Luís Troso", role: "Presidente do Conselho de Administração", image: luisTroso },
+    { name: "Ailton da Silva", role: "Administrador Executivo", image: ailtonSilva },
+    { name: "Euclides Luís", role: "Administrador Executivo", image: euclidesLuis },
   ];
 
   const direcao = [
-    { name: "Carlos Alberto Mendes", role: "CEO - Chief Executive Officer", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
-    { name: "Ana Beatriz Silva", role: "CFO - Chief Financial Officer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
-    { name: "Ricardo Jorge Lima", role: "COO - Chief Operating Officer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
-    { name: "Teresa Margarida Nunes", role: "CHRO - Chief Human Resources Officer", image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" },
+    { name: "Anísio Cerca", role: "Controlo Interno", image: anisio },
+    { name: "Nestor Quindai", role: "Capital Humano", image: nestor },
+    { name: "Paulo Costa", role: "Jurídico", image: paulo },
+    { name: "Policarpo Manuel", role: "Contabilidade", image: policarpo },
+    { name: "Vladimir Maior", role: "Finanças", image: vladimir },
   ];
 
   const unidades = [
-    { name: "Paulo André Sousa", role: "Diretor - Agricultura", area: "Agricultura" },
-    { name: "Marta Cristina Reis", role: "Diretora - Distribuição", area: "Distribuição" },
-    { name: "Fernando José Alves", role: "Diretor - Farmacêutica", area: "Farmacêutica" },
-    { name: "Sandra Luísa Pinto", role: "Diretora - Finanças", area: "Finanças" },
-    { name: "Rui Miguel Correia", role: "Diretor - Indústria", area: "Indústria" },
-    { name: "Catarina Isabel Lopes", role: "Diretora - Serviços", area: "Serviços" },
+    { name: "Inácia Gaspar", role: "Diretor - Agricultura"},
+    { name: "Ana Macedo", role: "Nova Fibrex, Food Factory e Sanep Nutrição"},
+    { name: "Maria Celeste", role: "Crediangolar"},
+    { name: "Adélia Domingos", role: "Sanep Imobiliária" },
+    { name: "Luís Francisco", role: "Sanep Lda", area: "Indústria" },
+    { name: "José Villalón", role: "Fazenda Kabanguela"},
   ];
 
   return (
@@ -93,7 +106,7 @@ const Organograma = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
               <Users className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                Direção Executiva
+                Direcção Executiva
               </span>
             </div>
             <h2 className="text-3xl font-serif font-bold text-foreground">
@@ -101,14 +114,14 @@ const Organograma = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
             {direcao.map((member, index) => (
               <div
                 key={index}
                 className="bg-card rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -139,7 +152,7 @@ const Organograma = () => {
               </span>
             </div>
             <h2 className="text-3xl font-serif font-bold text-foreground">
-              Diretores de Negócio
+              Directores de Negócio
             </h2>
           </div>
 
@@ -171,7 +184,7 @@ const Organograma = () => {
               Governação Corporativa
             </h2>
             <p className="text-primary-foreground/80 mb-8">
-              O Grupo SANEP adota as melhores práticas de governação corporativa, 
+              O Grupo SANEP adopta as melhores práticas de governação corporativa, 
               garantindo transparência, ética e responsabilidade em todas as suas 
               operações. A nossa estrutura organizacional foi desenhada para 
               assegurar uma gestão eficiente e sustentável.
