@@ -28,8 +28,8 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl animate-fade-in-up delay-100">
-            O Grupo SANEP é um conglomerado empresarial líder, atuando nos setores 
-            de agricultura, distribuição, farmacêutica, finanças, indústria e serviços, 
+            O Grupo SANEP é um conglomerado empresarial líder, actuando nos sectores 
+            de agricultura, distribuição, farmacêutica, finanças, Imobiliária, indústria e serviços, 
             impulsionando o desenvolvimento económico sustentável.
           </p>
           

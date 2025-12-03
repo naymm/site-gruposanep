@@ -12,6 +12,10 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
+
+import logoWhite from "../../img/logo-light.png";
+import logoDark from "../../img/logo-dark.png";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,15 +66,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 rounded-lg gradient-corporate flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">S</span>
-            </div>
-            <span className={cn(
-              "font-serif text-2xl font-bold transition-colors",
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            )}>
-              SANEP
-            </span>
+          <img 
+            src={isScrolled ? logoDark : logoWhite}
+            alt="SANEP Logotipo"
+            className="h-10 w-auto transition-all duration-300 logotipo"
+          />
+            
           </Link>
 
           {/* Desktop Navigation */}

@@ -60,8 +60,8 @@ const StatCard = ({ icon, value, suffix = "", label }: StatProps) => {
         {icon}
       </div>
       <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-        {count}
         {suffix}
+        {count}
       </div>
       <p className="text-muted-foreground font-medium">{label}</p>
     </div>
@@ -72,26 +72,27 @@ const StatsSection = () => {
   const stats = [
     {
       icon: <Building2 size={28} />,
-      value: 35,
+      value: 12,
       suffix: "+",
       label: "Anos de Experiência",
     },
     {
       icon: <Users size={28} />,
-      value: 5000,
+      value: 500,
       suffix: "+",
       label: "Colaboradores",
     },
     {
       icon: <Globe size={28} />,
       value: 8,
+      suffix: "+",
       label: "Países de Atuação",
     },
     {
       icon: <TrendingUp size={28} />,
-      value: 20,
+      value: 10,
       suffix: "+",
-      label: "Empresas do Grupo",
+      label: "Empresas",
     },
   ];
 
