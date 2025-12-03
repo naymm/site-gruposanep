@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { Quote, Play, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import luisTrosoSM from "../../img/outras/luis-trosoSM.png";
 
 const MensagemPCA = () => {
   return (
@@ -32,13 +33,13 @@ const MensagemPCA = () => {
               <div className="sticky top-32">
                 <div className="bg-card rounded-2xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    src={luisTrosoSM}
                     alt="António Manuel Santos - PCA"
                     className="w-full aspect-[4/5] object-cover"
                   />
                   <div className="p-6">
                     <h2 className="text-2xl font-serif font-bold text-foreground mb-1">
-                      António Manuel Santos
+                      Luís Manuel Troso
                     </h2>
                     <p className="text-secondary font-medium mb-4">
                       Presidente do Conselho de Administração
@@ -79,14 +80,14 @@ const MensagemPCA = () => {
                   Caros Stakeholders,
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   É com grande orgulho que me dirijo a vós enquanto Presidente do 
-                  Conselho de Administração do Grupo SANEP. Ao longo de mais de três 
-                  décadas, temos construído um legado de excelência, inovação e 
+                  Conselho de Administração do Grupo SANEP. Ao longo de uma 
+                  década, temos construído um legado de excelência, inovação e 
                   compromisso com o desenvolvimento de Angola e da região.
                 </p>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   O ano que passou foi marcado por desafios significativos, mas também 
                   por conquistas notáveis. Mantivemos o nosso compromisso inabalável 
                   com a qualidade, a sustentabilidade e a criação de valor para todas 
@@ -99,14 +100,14 @@ const MensagemPCA = () => {
                   Visão Estratégica
                 </h4>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   Olhando para o futuro, continuamos focados na nossa estratégia de 
                   crescimento sustentável e diversificação. Os nossos investimentos 
                   em tecnologia, sustentabilidade e capital humano posicionam-nos 
                   como líderes em todos os setores onde atuamos.
                 </p>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   A transformação digital é uma prioridade estratégica. Estamos a 
                   implementar soluções inovadoras que aumentam a nossa eficiência 
                   operacional e melhoram a experiência dos nossos clientes. 
@@ -119,7 +120,7 @@ const MensagemPCA = () => {
                   As Nossas Pessoas
                 </h4>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   O sucesso do Grupo SANEP é, acima de tudo, o sucesso das nossas 
                   pessoas. Investimos continuamente na formação e desenvolvimento 
                   dos nossos colaboradores, porque acreditamos que são eles o nosso 
@@ -131,7 +132,7 @@ const MensagemPCA = () => {
                   Compromisso com Angola
                 </h4>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   Enquanto empresa angolana de referência, temos um papel crucial 
                   no desenvolvimento económico e social do nosso país. Através dos 
                   nossos programas de responsabilidade social, apoiamos comunidades, 
@@ -139,7 +140,7 @@ const MensagemPCA = () => {
                   para todos os angolanos.
                 </p>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
                   Agradeço a todos os nossos colaboradores, clientes, parceiros e 
                   acionistas pela confiança e apoio contínuos. Juntos, continuaremos 
                   a construir um Grupo SANEP cada vez mais forte, sustentável e 
@@ -153,7 +154,7 @@ const MensagemPCA = () => {
                     Angola e da região."
                   </p>
                   <p className="text-muted-foreground font-bold">
-                    António Manuel Santos
+                    Luís Manuel Troso
                   </p>
                   <p className="text-muted-foreground text-sm">
                     Presidente do Conselho de Administração
@@ -181,15 +182,15 @@ const MensagemPCA = () => {
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Licenciatura em Economia - Universidade Agostinho Neto</span>
+                      <span>Licenciatura em Gestão de Recursos Humanos</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>MBA - INSEAD Business School, França</span>
+                      <span>Banca e Finanças - Nível III e IV</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Programa de Liderança Executiva - Harvard Business School</span>
+                      <span>Pós-graduação em Investimentos em Mervados Financeiros</span>
                     </li>
                   </ul>
                 </div>
@@ -199,16 +200,9 @@ const MensagemPCA = () => {
                   </h4>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-2">
-                      <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Fundador do Grupo SANEP (1989)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Presidente da Câmara de Comércio Angola-Portugal</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Membro do Conselho Empresarial de Angola</span>
+                      <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0 texto-justificado" />
+                      <span>Possui mais de 22 anos de actividade profissional e vasta experiência na liderança e gestão de pessoas, projectos e empresas, com destaque para o sector financeiro onde iniciou a carreira profissional e hoje possui participações em empresas no sector.
+                      </span>
                     </li>
                   </ul>
                 </div>
