@@ -1,46 +1,57 @@
 import Layout from "@/components/layout/Layout";
+// IMAGENS
+import img1 from "../../img/outras/01.webp";
+import img2 from "../../img/outras/02.webp";
+import img3 from "../../img/outras/03.webp";
+import img4 from "../../img/outras/04.webp";
+import img5 from "../../img/outras/05.webp";
 
 const Historia = () => {
   const timeline = [
     {
-      year: "1989",
+      year: "20213",
       title: "Fundação",
       description: "O Grupo SANEP é fundado em Luanda com foco inicial no setor de distribuição.",
     },
     {
-      year: "1995",
-      title: "Expansão para Agricultura",
-      description: "Início das operações agrícolas com aquisição de fazendas no sul de Angola.",
+      year: "2014",
+      title: "Diversificação da Sanep",
+      description: "A diversificação da carteira de negócios da SANEP marca um passo estratégico e visionário na trajectória da empresa, ao se aventurar em novos sectores através da criação das sociedades Road Plus, Lda, dedicada à Construção Civil e Obras Públicas, e BASIAELIA, focada na Indústria Panificadora. Essa expansão representa não apenas um marco importante para a SANEP, mas também evidencia sua capacidade de adaptar-se e prosperar em ambientes empresariais diversificados.",
     },
     {
-      year: "2001",
-      title: "Entrada no Setor Farmacêutico",
-      description: "Criação da divisão farmacêutica, tornando-se um dos principais distribuidores do país.",
-    },
-    {
-      year: "2008",
-      title: "Serviços Financeiros",
-      description: "Lançamento da holding financeira, expandindo para seguros e microcrédito.",
-    },
-    {
-      year: "2012",
-      title: "Industrialização",
-      description: "Inauguração do primeiro complexo industrial de transformação agroalimentar.",
+      year: "2015",
+      title: "Diversificação através de aquisição",
+      description: "A estratégia de diversificação da empresa foi ampliada através de uma significativa aquisição: a compra de 25% do capital da Sociedade ZEEPACK, uma fábrica de papel cartão, pelo valor de USD 2.000.000,00. Essa decisão representa um passo estratégico ousado que posiciona a empresa em um novo mercado e oferece oportunidades emocionantes para o crescimento e o desenvolvimento a longo prazo.",
     },
     {
       year: "2016",
-      title: "Internacionalização",
-      description: "Expansão para Moçambique, Namíbia e República Democrática do Congo.",
+      title: "Crescimento e Expansão",
+      description: "O crescimento e a expansão internacional das várias insígnias da SANEP para locais tão diversos como Brasil, Emirados Árabes Unidos (EAU) e Portugal representam uma estratégia audaciosa e visionária da empresa, com o objetivo de consolidar sua presença global e aproveitar oportunidades em mercados estratégicos em todo o mundo. Essa expansão demonstra a capacidade da SANEP de se adaptar e prosperar em ambientes de negócios diversos e competitivos.",
+    },
+    {
+      year: "2017",
+      title: "Novos Negócios",
+      description: "A estratégia de diversificação da empresa se destacou por meio de aquisições e pela criação de novos negócios, demonstrando a visão empreendedora e o compromisso da organização em explorar uma ampla gama de oportunidades nos mercados em que atua. Aquisição da RMARCA (Sociedade de Microcrédito) Criação das empresas: FAZENDA KABANGUELA (Produção Agropecuária) REGADIO (Gestão, Engenharia e Mecanização Agrícola) AGROAWA (Distribuição de Produtos Agropecuarios) FOOD FACTORY (Retálho e Distribuição Alimentar) MEGA CALÇADOS (Produção e Comercialização de Calçados) Alienação da participação na sociedade ZEEPACK por USD 5.000.000,00 Reforço da posição na FIBREX.",
+    },
+    {
+      year: "2018",
+      title: "Novos Negócios",
+      description: "A criação do Grupo SANEP marcou um importante marco na estratégia de crescimento e expansão da empresa. Essa iniciativa representou não apenas a consolidação das diversas operações da SANEP em diferentes setores, mas também a organização dessas operações em holdings específicas, cada uma focada em áreas de negócios distintas. Essa estrutura de holdings permite uma gestão mais eficiente e estratégica dos diversos segmentos em que a SANEP atua.As holdings do Grupo SANEP são:- Sanep SGPS,- Sanep Agricultura SGPS,-Sanep Distribuição SGPS,- Sanep Indústria SGPS,- Sanep Imobiliária SGPS,- Sanep Serviços SGPS.Eleição do Conselho de Administração das Sociedades Holdings.",
+    },
+    {
+      year: "2019",
+      title: "Aprovação da Constituíção do Grupo SANEP",
+      description: "A aprovação da Convenção e regulamentos de constituição do Grupo SANEP marcou o início de uma fase emocionante e estratégica para a empresa. Essa aprovação formalizou a visão da SANEP de reorganizar e expandir seu portfólio de negócios, com um foco claro na criação de valor para os acionistas e no atendimento às necessidades de seus clientes e comunidades onde atua.(Apresentação da estrategia corporativa e reorganizaçãodas áreas de negócios)Criação da Sanep Finanças SGPS (Área denegócio dedicada a gestão de investimentos financeirosdo grupo)Criação da Sanep VIDA (Produ- tos e Serviços deSaúde)Criação da Sanep Palm Life (Indústria Agroalimentar)Sanep Imobiliária conclui a primeira unidadehoteleira do Grupo em Luanda.",
     },
     {
       year: "2020",
-      title: "Transformação Digital",
-      description: "Implementação de programa de digitalização em todas as unidades de negócio.",
+      title: "Pandemia de COVID-19",
+      description: "O início de 2020 foi marcado por um evento sem precedentes que apresentou desafios de uma natureza invulgar: a epidemia de Covid-19. Essa epidemia, que rapidamente se transformou em uma pandemia global, teve um impacto significativo em todos os aspectos da sociedade, indo além das questões de saúde e afetando profundamente o sistema econômico e financeiro em todo o mundo. A rapidez com que a pandemia se espalhou e as incertezas que gerou quanto à sua evolução tornaram-na um desafio incomparável.",
     },
     {
       year: "2024",
-      title: "Sustentabilidade",
-      description: "Lançamento do programa ESG com metas ambiciosas de neutralidade carbónica até 2040.",
+      title: "Novos Negócios",
+      description: "A estratégia de diversificação da empresa se destacou por meio de criação de novos negócios, demonstrando a visão empreendedora e o compromisso da organização em explorar uma ampla gama de oportunidades nos mercados em que actua.Criação das empresas:OKAVANGO (Produção Medicamentos Genéricos Orais)ZAMBEZI (Produção e Distribuição de Medicamentos Genéricos)PETRISLAB (Laboratório de Investigação em Biotecnologia e Ciências Farmacêuticas)SQA - SANEP QUÍMICOS DE ANGOLAAKIESE FARMA (Distribuição de Medicamentos & Equipamentos)Fibrex PharmaTech (Fabrcação de embalagens para medicamentos).",
     },
   ];
 
@@ -95,7 +106,7 @@ const Historia = () => {
                       <h3 className="text-xl font-serif font-bold text-foreground mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-muted-foreground">{item.description}</p>
+                      <p className="text-muted-foreground texto-justificado">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -113,16 +124,16 @@ const Historia = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Um Legado de Impacto
               </h2>
-              <p className="text-muted-foreground mb-4">
-                Ao longo de mais de 35 anos, o Grupo SANEP tem sido um catalisador 
+              <p className="text-muted-foreground mb-4 texto-justificado">
+                Ao longo de mais de 10 anos, o Grupo SANEP tem sido um catalisador 
                 do desenvolvimento económico e social em Angola e na região.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 Desde a nossa fundação, investimos consistentemente em pessoas, 
                 infraestruturas e tecnologia, sempre com o objetivo de criar valor 
                 sustentável para todas as partes interessadas.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 O nosso compromisso com a excelência e a responsabilidade social 
                 continua a guiar cada decisão que tomamos, enquanto trabalhamos 
                 para construir um futuro mais próspero para todos.
@@ -130,22 +141,22 @@ const Historia = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                src={img1}
                 alt="Operações agrícolas"
                 className="rounded-xl shadow-lg"
               />
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                src={img2}
                 alt="Operações industriais"
                 className="rounded-xl shadow-lg mt-8"
               />
               <img
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                src={img3}
                 alt="Equipa SANEP"
                 className="rounded-xl shadow-lg"
               />
               <img
-                src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                src={img4}
                 alt="Sustentabilidade"
                 className="rounded-xl shadow-lg mt-8"
               />
