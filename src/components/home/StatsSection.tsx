@@ -86,7 +86,7 @@ const StatsSection = () => {
       icon: <Globe size={28} />,
       value: 8,
       suffix: "+",
-      label: "Países de Atuação",
+      label: "Países de Actuação",
     },
     {
       icon: <TrendingUp size={28} />,
