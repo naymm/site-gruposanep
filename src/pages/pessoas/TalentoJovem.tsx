@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Users, Rocket, BookOpen, Calendar, Award, Building2, Target } from "lucide-react";
 import { Link } from "react-router-dom";
+import talentoJovem from "../../img/outras/talento-jovem.webp";
 
 const TalentoJovem = () => {
   const programs = [
@@ -65,7 +66,7 @@ const TalentoJovem = () => {
       <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            src={talentoJovem}
             alt="Talento Jovem"
             className="w-full h-full object-cover"
           />
@@ -79,8 +80,8 @@ const TalentoJovem = () => {
               Talento Jovem
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Investimos no futuro através de programas que desenvolvem jovens 
-              talentos e preparam os líderes de amanhã.
+              Investimos no futuro através de programas <br></br> que desenvolvem jovens 
+              talentos e preparam <br></br> os líderes de amanhã.
             </p>
             <Button asChild variant="secondary" size="lg">
               <Link to="/pessoas/carreiras">Candidatar-me</Link>

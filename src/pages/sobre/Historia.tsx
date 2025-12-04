@@ -68,7 +68,7 @@ const Historia = () => {
               Nossa História
             </h1>
             <p className="text-xl text-primary-foreground/80">
-              Uma jornada de mais de três décadas de crescimento, inovação e 
+              Uma jornada de uma década de crescimento, inovação e 
               compromisso com o desenvolvimento de Angola.
             </p>
           </div>
@@ -130,7 +130,7 @@ const Historia = () => {
               </p>
               <p className="text-muted-foreground mb-4 texto-justificado">
                 Desde a nossa fundação, investimos consistentemente em pessoas, 
-                infraestruturas e tecnologia, sempre com o objetivo de criar valor 
+                infraestruturas e tecnologia, sempre com o objectivo de criar valor 
                 sustentável para todas as partes interessadas.
               </p>
               <p className="text-muted-foreground texto-justificado">

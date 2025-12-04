@@ -29,11 +29,11 @@ const Organograma = () => {
   ];
 
   const unidades = [
-    { name: "Inácia Gaspar", role: "Diretor - Agricultura"},
+    { name: "Inácia Gaspar", role: "Sanep Vida"},
     { name: "Ana Macedo", role: "Nova Fibrex, Food Factory e Sanep Nutrição"},
     { name: "Maria Celeste", role: "Crediangolar"},
     { name: "Adélia Domingos", role: "Sanep Imobiliária" },
-    { name: "Luís Francisco", role: "Sanep Lda", area: "Indústria" },
+    { name: "Luís Francisco", role: "Sanep Lda"},
     { name: "José Villalón", role: "Fazenda Kabanguela"},
   ];
 
@@ -163,9 +163,6 @@ const Organograma = () => {
                 className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-secondary animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <span className="inline-block px-3 py-1 bg-secondary/10 text-secondary text-xs font-semibold rounded-full mb-3">
-                  {member.area}
-                </span>
                 <h3 className="text-lg font-serif font-bold text-foreground">
                   {member.name}
                 </h3>

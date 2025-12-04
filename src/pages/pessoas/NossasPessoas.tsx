@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Users, Heart, Globe, Award, Star, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import nossasPessoas from "../../img/outras/nossas-pessoas.webp";
 
 const NossasPessoas = () => {
   const diversityStats = [
@@ -67,7 +68,7 @@ const NossasPessoas = () => {
       <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            src={nossasPessoas}
             alt="Nossas Pessoas"
             className="w-full h-full object-cover"
           />
@@ -81,7 +82,7 @@ const NossasPessoas = () => {
               As Nossas Pessoas
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Mais de 12.000 profissionais apaixonados que fazem do Grupo SANEP 
+              Mais de 500 profissionais apaixonados que fazem do Grupo SANEP 
               uma referência em Angola e no mundo.
             </p>
           </div>
@@ -117,7 +118,7 @@ const NossasPessoas = () => {
                 inovadoras e bem-sucedidas.
               </p>
               <p className="text-muted-foreground mb-4 texto-justificado">
-                Trabalhamos ativamente para criar um ambiente onde todos se 
+                Trabalhamos activamente para criar um ambiente onde todos se 
                 sintam respeitados e valorizados, independentemente de género, 
                 idade, origem, religião ou qualquer outra característica.
               </p>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import naym from "../../img/pessoas/naym.webp";
 import isabel from "../../img/pessoas/isabel.webp";
 import adelino from "../../img/pessoas/adelino.webp";
+import trabalharSanep from "../../img/outras/trabalhar-sanep.webp";
 
 const TrabalharNaSanep = () => {
   const benefits = [
@@ -67,7 +68,7 @@ const TrabalharNaSanep = () => {
       <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            src={trabalharSanep}
             alt="Trabalhar na SANEP"
             className="w-full h-full object-cover"
           />

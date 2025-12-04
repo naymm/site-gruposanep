@@ -91,7 +91,7 @@ const MensagemPCA = () => {
                   O ano que passou foi marcado por desafios significativos, mas também 
                   por conquistas notáveis. Mantivemos o nosso compromisso inabalável 
                   com a qualidade, a sustentabilidade e a criação de valor para todas 
-                  as partes interessadas. Os nossos resultados refletem a dedicação 
+                  as partes interessadas. Os nossos resultados reflectem a dedicação 
                   incansável das nossas equipas e a confiança depositada pelos nossos 
                   parceiros e clientes.
                 </p>
@@ -104,7 +104,7 @@ const MensagemPCA = () => {
                   Olhando para o futuro, continuamos focados na nossa estratégia de 
                   crescimento sustentável e diversificação. Os nossos investimentos 
                   em tecnologia, sustentabilidade e capital humano posicionam-nos 
-                  como líderes em todos os setores onde atuamos.
+                  como líderes em todos os sectores onde actuamos.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed mb-6 texto-justificado">
@@ -124,7 +124,7 @@ const MensagemPCA = () => {
                   O sucesso do Grupo SANEP é, acima de tudo, o sucesso das nossas 
                   pessoas. Investimos continuamente na formação e desenvolvimento 
                   dos nossos colaboradores, porque acreditamos que são eles o nosso 
-                  maior ativo. A diversidade, a inclusão e o bem-estar das nossas 
+                  maior activo. A diversidade, a inclusão e o bem-estar das nossas 
                   equipas são pilares fundamentais da nossa cultura organizacional.
                 </p>
 
@@ -190,7 +190,7 @@ const MensagemPCA = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                      <span>Pós-graduação em Investimentos em Mervados Financeiros</span>
+                      <span>Pós-graduação em Investimentos em Mercados Financeiros</span>
                     </li>
                   </ul>
                 </div>

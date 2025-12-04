@@ -182,7 +182,7 @@ const MainBusinessesSection = () => {
       image:
         "https://cdn.pixabay.com/photo/2023/02/01/16/26/animal-7760773_960_720.jpg",
       logo: sanepnutricao,
-      name: "Sanep Nutrição",
+      name: "Sanep Nutricao",
       href: "/negocios/sanep-nutricao",
       category: "Nutrição",
     },
