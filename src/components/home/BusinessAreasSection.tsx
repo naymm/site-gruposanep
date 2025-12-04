@@ -1,24 +1,25 @@
 import { Link } from "react-router-dom";
-import { 
-  Wheat, 
-  Truck, 
-  Pill, 
-  Landmark, 
-  Factory, 
-  Briefcase,
-  ArrowRight 
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Import das imagens
+import agricultura from "../../img/holdings/agricultura.png";
+import distribuicao from "../../img/holdings/distribuicao.png";
+import farmaceutica from "../../img/holdings/farmaceutica.png";
+import financeira from "../../img/holdings/financas.png";
+import imobiliaria from "../../img/holdings/imobiliaria.png";
+import industria from "../../img/holdings/industria.png";
+import servicos from "../../img/holdings/servicos.png";
+
 interface BusinessAreaProps {
-  icon: React.ReactNode;
   title: string;
   description: string;
   href: string;
   index: number;
+  image: string;
 }
 
-const BusinessAreaCard = ({ icon, title, description, href, index }: BusinessAreaProps) => {
+const BusinessAreaCard = ({ image, title, description, href, index }: BusinessAreaProps) => {
   return (
     <Link
       to={href}
@@ -28,18 +29,17 @@ const BusinessAreaCard = ({ icon, title, description, href, index }: BusinessAre
       )}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Decorative Background */}
+      {/* Background decorativo */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
       
-      <div className="relative">
-        <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center text-secondary-foreground mb-6 group-hover:scale-110 transition-transform">
-          {icon}
-        </div>
-        
-        <h3 className="text-xl font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
-        
+      <div className="relative flex flex-col items-center text-center">
+        {/* Imagem menor */}
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-44 h-24 object-contain mb-6 group-hover:scale-105 transition-transform duration-500" 
+        />
+
         <p className="text-muted-foreground mb-4 line-clamp-3">
           {description}
         </p>
@@ -56,40 +56,46 @@ const BusinessAreaCard = ({ icon, title, description, href, index }: BusinessAre
 const BusinessAreasSection = () => {
   const areas = [
     {
-      icon: <Wheat size={24} />,
-      title: "Agricultura",
+      image: agricultura,
+      title: "Agriculturas",
       description: "Produção agrícola sustentável e inovadora, desde culturas tradicionais até técnicas modernas de agricultura de precisão.",
       href: "/negocios/agricultura",
     },
     {
-      icon: <Truck size={24} />,
+      image: distribuicao,
       title: "Distribuição",
       description: "Rede logística abrangente que conecta produtores e consumidores em todo o território nacional e internacional.",
       href: "/negocios/distribuicao",
     },
     {
-      icon: <Pill size={24} />,
+      image: farmaceutica,
       title: "Farmacêutica",
       description: "Distribuição e comercialização de medicamentos e produtos de saúde, garantindo acesso a cuidados de qualidade.",
       href: "/negocios/farmaceutica",
     },
     {
-      icon: <Landmark size={24} />,
+      image: financeira,
       title: "Finanças",
       description: "Serviços financeiros diversificados que apoiam o crescimento empresarial e o desenvolvimento económico.",
       href: "/negocios/financas",
     },
     {
-      icon: <Factory size={24} />,
+      image: industria,
       title: "Indústria",
       description: "Capacidade industrial diversificada, desde transformação de matérias-primas até manufatura avançada.",
       href: "/negocios/industria",
     },
     {
-      icon: <Briefcase size={24} />,
+      image: servicos,
       title: "Serviços",
       description: "Soluções empresariais integradas que suportam operações em múltiplos setores de atividade.",
       href: "/negocios/servicos",
+    },
+    {
+      image: imobiliaria,
+      title: "Imobiliária",
+      description: "Gestão e desenvolvimento de projetos imobiliários que promovem inovação e sustentabilidade.",
+      href: "/negocios/imobiliaria",
     },
   ];
 
@@ -109,7 +115,8 @@ const BusinessAreasSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid ajustada para centralizar a última caixa */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center caixas">
           {areas.map((area, index) => (
             <BusinessAreaCard key={area.title} {...area} index={index} />
           ))}

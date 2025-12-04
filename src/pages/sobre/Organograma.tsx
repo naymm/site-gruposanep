@@ -72,26 +72,56 @@ const Organograma = () => {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
-            {conselho.map((member, index) => (
-              <div
-                key={index}
-                className="text-center animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary shadow-lg">
+          <div className="relative flex flex-col items-center mb-16 py-8 min-h-[500px]">
+            {/* Presidente - Topo Central (Maior) */}
+            <div className="text-center animate-fade-in z-10">
+              <div className="w-56 h-56 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary shadow-lg">
+                <img
+                  src={conselho[0].image}
+                  alt={conselho[0].name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-foreground">
+                {conselho[0].name}
+              </h3>
+              <p className="text-sm text-muted-foreground">{conselho[0].role}</p>
+            </div>
+
+         
+
+            {/* Administradores - Lado Esquerdo e Direito */}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-32 mt-20">
+              {/* Administrador Esquerdo */}
+              <div className="text-center animate-fade-in" style={{ animationDelay: "200ms" }}>
+                <div className="w-44 h-44 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary shadow-lg">
                   <img
-                    src={member.image}
-                    alt={member.name}
+                    src={conselho[1].image}
+                    alt={conselho[1].name}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="text-lg font-serif font-bold text-foreground">
-                  {member.name}
+                  {conselho[1].name}
                 </h3>
-                <p className="text-sm text-muted-foreground">{member.role}</p>
+                <p className="text-sm text-muted-foreground">{conselho[1].role}</p>
               </div>
-            ))}
+
+              {/* Administrador Direito */}
+              <div className="text-center animate-fade-in" style={{ animationDelay: "300ms" }}>
+                <div className="w-44 h-44 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary shadow-lg">
+                  <img
+                    src={conselho[2].image}
+                    alt={conselho[2].name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-serif font-bold text-foreground">
+                  {conselho[2].name}
+                </h3>
+                <p className="text-sm text-muted-foreground">{conselho[2].role}</p>
+              </div>
+            </div>
           </div>
 
           {/* Connecting Line */}
