@@ -20,7 +20,7 @@ const CTASection = () => {
               Faça Parte da Nossa Equipa
             </h2>
             <p className="text-primary-foreground/80 mb-8 text-lg">
-              No Grupo SANEP, acreditamos que o nosso maior ativo são as pessoas. 
+              No Grupo SANEP, acreditamos que o nosso maior activo são as pessoas. 
               Procuramos talentos que partilhem a nossa visão de excelência e 
               compromisso com o desenvolvimento sustentável.
             </p>
@@ -41,7 +41,7 @@ const CTASection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="font-semibold border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                className="font-semibold border-primary-foreground/30 text-primary-foreground texto hover:bg-primary-foreground/10 hover:text-primary-foreground"
                 asChild
               >
                 <Link to="/pessoas/trabalhar-na-sanep">

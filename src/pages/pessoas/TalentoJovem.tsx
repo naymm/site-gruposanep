@@ -33,30 +33,30 @@ const TalentoJovem = () => {
     "Universidade Católica de Angola",
     "Universidade Metodista de Angola",
     "Universidade Jean Piaget",
-    "ISCTE Angola",
+    "Universidade Metropolitana de Angola",
     "Instituto Superior Técnico de Angola",
   ];
 
   const testimonials = [
     {
-      name: "Carlos Eduardo",
-      role: "Ex-Trainee, atual Gestor de Projetos",
-      quote: "O programa trainee foi transformador. Em 18 meses, aprendi mais do que em anos de estudo teórico.",
+      name: "Otiniel Domingos",
+      role: "Ex-Trainee, actual Técnico de Planeamento",
+      quote: "O programa trainee foi transformador. Em 3 meses, aprendi mais do que em anos de estudo teórico.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     },
     {
-      name: "Ana Luísa",
-      role: "Ex-Estagiária, atual Analista Senior",
-      quote: "Comecei como estagiária e hoje sou parte da equipa de liderança. A SANEP investe genuinamente nos jovens.",
+      name: "Edvânia Cristóvão",
+      role: "Ex-Estagiária, actual Assistente de Recursos Humanos",
+      quote: "Comecei como estagiária e hoje sou parte da equipa. A SANEP investe genuinamente nos jovens.",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
     },
   ];
 
   const stats = [
-    { value: "200+", label: "Estagiários por ano" },
+    { value: "+50", label: "Estagiários por ano" },
     { value: "50", label: "Trainees formados" },
-    { value: "85%", label: "Taxa de efetivação" },
-    { value: "100+", label: "Bolsas ativas" },
+    { value: "40%", label: "Taxa de efectivação" },
+    { value: "+30", label: "Bolsas activas" },
   ];
 
   return (

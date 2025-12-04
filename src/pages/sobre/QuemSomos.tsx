@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import { Check, Award, Globe, Target } from "lucide-react";
+import grupo from "../../img/outras/grupo.webp";
 
 const QuemSomos = () => {
   const values = [
@@ -82,7 +83,7 @@ const QuemSomos = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={grupo}
                 alt="Sede do Grupo SANEP"
                 className="rounded-xl shadow-xl"
               />

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import logoWhite from "../../img/logo-light.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,12 +50,9 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
-                <span className="text-secondary-foreground font-bold text-xl">S</span>
-              </div>
-              <span className="font-serif text-2xl font-bold">SANEP</span>
+              <img src={logoWhite} alt="Grupo SANEP" className="w-100 h-12" />
             </Link>
-            <p className="text-primary-foreground/70 mb-6 max-w-sm">
+            <p className="text-primary-foreground/70 mb-6 max-w-sm t">
               Um grupo empresarial diversificado, comprometido com a excelência, 
               inovação e desenvolvimento sustentável em Angola e além.
             </p>
@@ -162,17 +160,17 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-secondary mt-1 flex-shrink-0" />
                 <span className="text-primary-foreground/70">
-                  Rua Major Kanhangulo, 290<br />
-                  Luanda, Angola
+                Edifício ESCOM, R. Mal. Brós Tito nº35/37, 4º andar,<br />
+                  Luanda - Angola
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/70">+244 222 123 456</span>
+                <span className="text-primary-foreground/70">+244 926 159 196 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/70">info@gruposanep.ao</span>
+                <span className="text-primary-foreground/70">geral@gruposanep.co.ao</span>
               </li>
             </ul>
           </div>

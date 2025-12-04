@@ -49,7 +49,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="ghost"
-              className="text-base font-semibold bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20"
+              className="text-base font-semibold bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 textoBtn-bugado"
             >
               <Play className="mr-2 h-5 w-5" />
               Ver Vídeo Institucional

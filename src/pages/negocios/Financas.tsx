@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Financas = () => {
   const stats = [
-    { value: "50.000+", label: "Clientes ativos", icon: Users },
-    { value: "500M+", label: "USD em ativos geridos", icon: Wallet },
-    { value: "25+", label: "Agências", icon: Building2 },
-    { value: "15", label: "Anos de experiência", icon: TrendingUp },
+    { value: "+2.000", label: "Clientes ativos", icon: Users },
+    { value: "+1.4Mkz", label: "Cedidos em créditos", icon: Wallet },
+    { value: "1", label: "Agências", icon: Building2 },
+    { value: "+8", label: "Anos de experiência", icon: TrendingUp },
   ];
 
   const services = [
@@ -97,19 +97,19 @@ const Financas = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Parceiros no Seu Crescimento Financeiro
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A SANEP Finanças oferece um portfólio diversificado de serviços 
                 financeiros desenhados para atender às necessidades de particulares 
                 e empresas. A nossa missão é democratizar o acesso a serviços 
                 financeiros de qualidade.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 Através das nossas operações de microcrédito, já apoiámos milhares 
                 de pequenos empresários a concretizar os seus sonhos. A nossa 
                 seguradora oferece proteção abrangente, desde seguros pessoais 
                 a coberturas empresariais complexas.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Investimos continuamente em tecnologia para oferecer serviços 
                 digitais que tornam a gestão financeira mais acessível e conveniente.
               </p>

@@ -23,11 +23,6 @@ const Farmaceutica = () => {
       description: "Representamos os principais laboratórios farmacêuticos internacionais.",
     },
     {
-      icon: Stethoscope,
-      title: "Equipamentos Médicos",
-      description: "Fornecimento e manutenção de equipamentos médico-hospitalares.",
-    },
-    {
       icon: ShieldCheck,
       title: "Garantia de Qualidade",
       description: "Processos rigorosos de controlo de qualidade e rastreabilidade.",
@@ -59,8 +54,8 @@ const Farmaceutica = () => {
               Farmacêutica
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Contribuímos para a saúde dos angolanos através da distribuição de 
-              medicamentos de qualidade e equipamentos médicos de última geração.
+              Contribuímos para a saúde dos angolanos através da produção e distribuição de 
+              medicamentos de qualidade.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild variant="secondary" size="lg">
@@ -97,22 +92,17 @@ const Farmaceutica = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Cuidar da Saúde é a Nossa Missão
               </h2>
-              <p className="text-muted-foreground mb-4">
-                A SANEP Farmacêutica é uma das principais distribuidoras 
-                farmacêuticas de Angola, com mais de duas décadas de experiência 
-                no setor da saúde. Representamos os maiores laboratórios 
+              <p className="text-muted-foreground mb-4 texto-justificado">
+                A SANEP Farmacêutica é uma das principais 
+                farmacêuticas de Angola, com experiência 
+                no scetor da saúde. Representamos os maiores laboratórios 
                 internacionais e garantimos que medicamentos essenciais estejam 
                 disponíveis em todo o país.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A nossa infraestrutura inclui armazéns climatizados, frota 
                 refrigerada e sistemas de rastreabilidade que garantem a 
                 integridade dos produtos desde a origem até ao ponto de venda.
-              </p>
-              <p className="text-muted-foreground">
-                Além da distribuição de medicamentos, fornecemos equipamentos 
-                médicos, material hospitalar e oferecemos serviços de formação 
-                para profissionais de saúde.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -153,7 +143,7 @@ const Farmaceutica = () => {
               distribuição de medicamentos até equipamentos hospitalares.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}

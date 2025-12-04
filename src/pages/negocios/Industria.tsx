@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Industria = () => {
   const stats = [
-    { value: "5", label: "Unidades industriais", icon: Factory },
-    { value: "3.500+", label: "Colaboradores", icon: Users },
-    { value: "100M+", label: "USD investidos", icon: TrendingUp },
-    { value: "50+", label: "Produtos fabricados", icon: Building2 },
+    { value: "3", label: "Unidades industriais", icon: Factory },
+    { value: "+100", label: "Colaboradores", icon: Users },
+    { value: "+100M", label: "USD investidos", icon: TrendingUp },
+    { value: "+100", label: "Produtos fabricados", icon: Building2 },
   ];
 
   const services = [
@@ -97,18 +97,18 @@ const Industria = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Industrialização para o Desenvolvimento
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A SANEP Indústria é o braço de transformação do Grupo, com cinco 
                 unidades industriais modernas localizadas em diferentes regiões 
                 de Angola. A nossa estratégia é agregar valor às matérias-primas 
                 locais, reduzindo importações e criando empregos qualificados.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 As nossas fábricas processam produtos agrícolas produzidos pelo 
                 próprio Grupo e por agricultores parceiros, criando uma cadeia de 
                 valor integrada que beneficia toda a economia.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Investimos continuamente em tecnologia de ponta e formação dos 
                 nossos colaboradores, garantindo produtos de qualidade internacional 
                 produzidos localmente.
@@ -145,7 +145,7 @@ const Industria = () => {
         <div className="container-wide">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
-              Áreas de Atuação
+              Áreas de Actuação
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Operamos em diversos segmentos industriais, sempre com foco na 

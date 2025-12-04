@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const Agricultura = () => {
   const stats = [
-    { value: "50.000+", label: "Hectares cultivados", icon: MapPin },
-    { value: "2.500+", label: "Colaboradores", icon: Users },
-    { value: "15+", label: "Culturas diferentes", icon: Wheat },
+    { value: "+50.000", label: "Hectares cultivados", icon: MapPin },
+    { value: "+100", label: "Colaboradores", icon: Users },
+    { value: "+10", label: "Culturas diferentes", icon: Wheat },
     { value: "30%", label: "Crescimento anual", icon: TrendingUp },
   ];
 
@@ -58,7 +58,7 @@ const Agricultura = () => {
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary-foreground mt-2 mb-6">
               Agricultura
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
+            <p className="text-xl text-primary-foreground/80 mb-8 texto-justificado">
               Lideramos a produção agrícola em Angola com práticas sustentáveis, 
               tecnologia de ponta e compromisso com a segurança alimentar.
             </p>
@@ -97,19 +97,19 @@ const Agricultura = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Alimentando o Futuro de Angola
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A divisão agrícola do Grupo SANEP é uma das maiores operações 
                 agrícolas privadas de Angola. Com mais de 50.000 hectares de terras 
                 cultivadas, produzimos uma vasta gama de produtos que abastecem 
                 o mercado nacional e regional.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 Investimos continuamente em tecnologia e formação, garantindo que 
                 as nossas operações sejam eficientes, sustentáveis e responsáveis. 
                 O nosso compromisso com a qualidade é reconhecido através de 
                 certificações internacionais.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Trabalhamos também em parceria com agricultores locais, fornecendo 
                 assistência técnica, sementes de qualidade e acesso a mercados, 
                 contribuindo para o desenvolvimento das comunidades rurais.

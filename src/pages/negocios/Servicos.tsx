@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Servicos = () => {
   const stats = [
-    { value: "20+", label: "Empresas de serviços", icon: Building },
-    { value: "4.000+", label: "Colaboradores", icon: Users },
-    { value: "50+", label: "Clientes corporativos", icon: Briefcase },
-    { value: "8", label: "Países de operação", icon: Globe },
+    { value: "+4", label: "Empresas de serviços", icon: Building },
+    { value: "+50", label: "Colaboradores", icon: Users },
+    { value: "+100", label: "Clientes corporativos", icon: Briefcase },
+    { value: "+5", label: "Países de operação", icon: Globe },
   ];
 
   const services = [
@@ -19,13 +19,13 @@ const Servicos = () => {
     },
     {
       icon: Car,
-      title: "Rent-a-Car",
-      description: "Frota diversificada para aluguer de curta e longa duração.",
+      title: "Logística",
+      description: "Serviços de logística para empresas e particulares.",
     },
     {
       icon: Plane,
-      title: "Turismo e Viagens",
-      description: "Agência de viagens corporativas e turismo de lazer.",
+      title: "Educação",
+      description: "Serviços de educação para empresas e particulares.",
     },
     {
       icon: Wrench,

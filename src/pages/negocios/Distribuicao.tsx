@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const Distribuicao = () => {
   const stats = [
-    { value: "500+", label: "Pontos de venda", icon: MapPin },
-    { value: "1.800+", label: "Colaboradores", icon: Users },
-    { value: "200+", label: "Veículos na frota", icon: Truck },
-    { value: "18", label: "Províncias cobertas", icon: Building },
+    { value: "+20", label: "Pontos", icon: MapPin },
+    { value: "+20", label: "Colaboradores", icon: Users },
+    { value: "+50", label: "Veículos na frota", icon: Truck },
+    { value: "21", label: "Províncias cobertas", icon: Building },
   ];
 
   const services = [
     {
       icon: Truck,
       title: "Logística Nacional",
-      description: "Rede de distribuição que cobre todas as 18 províncias de Angola com eficiência e pontualidade.",
+      description: "Rede de distribuição que cobre todas as 21 províncias de Angola com eficiência e pontualidade.",
     },
     {
       icon: Package,
@@ -59,7 +59,7 @@ const Distribuicao = () => {
               Distribuição
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              A maior rede de distribuição de Angola, ligando produtores a 
+              Uma das redes de distribuição de Angola, ligando produtores a 
               consumidores em todo o território nacional.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -97,18 +97,18 @@ const Distribuicao = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Conectando Angola de Norte a Sul
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A SANEP Distribuição é a espinha dorsal comercial do Grupo, 
-                operando a maior rede de distribuição privada de Angola. 
-                Com presença em todas as 18 províncias, garantimos que produtos 
+                operando uma das redes de distribuição privada de Angola. 
+                Com presença em todas as 21 províncias, garantimos que produtos 
                 essenciais cheguem a milhões de angolanos.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A nossa infraestrutura inclui centros de distribuição estrategicamente 
-                localizados, uma frota moderna de mais de 200 veículos e sistemas 
+                localizados, uma frota moderna de mais de 50 veículos e sistemas 
                 de gestão de última geração que garantem eficiência e rastreabilidade.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Representamos marcas internacionais de renome e trabalhamos em 
                 parceria com produtores locais, contribuindo para o fortalecimento 
                 da economia angolana.

@@ -81,7 +81,7 @@ const TrabalharNaSanep = () => {
               Trabalhar na SANEP
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Junte-se a uma equipa de mais de 12.000 profissionais que todos os 
+              Junte-se a uma equipa de mais de 500 profissionais que todos os 
               dias fazem a diferença em Angola e no mundo.
             </p>
             <Button asChild variant="secondary" size="lg">

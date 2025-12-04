@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const NossasPessoas = () => {
   const diversityStats = [
-    { value: "48%", label: "Mulheres na liderança" },
-    { value: "12+", label: "Nacionalidades" },
+    { value: "38%", label: "Mulheres na liderança" },
+    { value: "+4", label: "Nacionalidades" },
     { value: "18-65", label: "Faixa etária" },
     { value: "100%", label: "Igualdade salarial" },
   ];
@@ -111,17 +111,17 @@ const NossasPessoas = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Diversidade e Inclusão
               </h2>
-              <p className="text-muted-foreground mb-4">
-                Na SANEP, a diversidade não é apenas uma política — é parte do 
+              <p className="text-muted-foreground mb-4 texto-justificado">
+                Na SANEP, a diversidade não é apenas uma política, é parte do 
                 nosso ADN. Acreditamos que equipas diversas são mais criativas, 
                 inovadoras e bem-sucedidas.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 Trabalhamos ativamente para criar um ambiente onde todos se 
                 sintam respeitados e valorizados, independentemente de género, 
                 idade, origem, religião ou qualquer outra característica.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Os nossos programas de igualdade de oportunidades garantem que 
                 o mérito seja o único critério para progressão na carreira.
               </p>

@@ -256,3 +256,14 @@
 .texto-justificado {
   text-align: justify !important;
 }
+
+.texto {
+  color: #222222 !important;
+}
+.texto:hover {
+  color: #ffffff !important;
+}
+
+.textoBtn-bugado {
+  color: #ffffff !important;
+}
