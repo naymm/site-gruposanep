@@ -2,6 +2,9 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Award, Coffee, Briefcase, GraduationCap, Shield, Smile } from "lucide-react";
 import { Link } from "react-router-dom";
+import naym from "../../img/pessoas/naym.webp";
+import isabel from "../../img/pessoas/isabel.webp";
+import adelino from "../../img/pessoas/adelino.webp";
 
 const TrabalharNaSanep = () => {
   const benefits = [
@@ -29,25 +32,25 @@ const TrabalharNaSanep = () => {
 
   const testimonials = [
     {
-      name: "Maria da Conceição",
-      role: "Gestora de Recursos Humanos",
+      name: "Adelino Pimpão",
+      role: "Relações Públicas",
       years: "8 anos na SANEP",
-      quote: "A SANEP tem sido uma escola para mim. Comecei como assistente e hoje lidero uma equipa. O investimento em formação e o apoio à progressão são reais.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      quote: "Tive a oportunidade de crescer junto com a empresa e acompanhar cada fase do nosso desenvolvimento. Trabalhar aqui não é apenas sobre atingir metas, mas sobre construir relações sólidas com clientes e parceiros, sempre com confiança e transparência. Sinto-me parte de algo maior, e isso me motiva todos os dias a fazer o meu melhor.",
+      image: adelino,
     },
     {
-      name: "João Pedro Sousa",
-      role: "Engenheiro Agrónomo",
-      years: "5 anos na SANEP",
-      quote: "Trabalhar na divisão agrícola da SANEP permite-me aplicar conhecimentos técnicos em projetos de grande escala e ver o impacto do meu trabalho no país.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      name: "Naym Mupoia",
+      role: "Coordenador de Marketing",
+      years: "1 ano na SANEP",
+      quote: "Mesmo em apenas um ano, percebi que é um grupo que valoriza inovação, criatividade e resultados concretos. Meu papel como coordenador de marketing me permite implementar ideias que realmente impactam a forma como nos conectamos com nossos clientes. Sinto-me desafiado e motivado a cada dia.",
+      image: naym,
     },
     {
-      name: "Teresa Almeida",
-      role: "Analista Financeira",
-      years: "3 anos na SANEP",
-      quote: "O ambiente de trabalho na SANEP é colaborativo e estimulante. Sinto que as minhas ideias são valorizadas e que posso fazer a diferença.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      name: "Isabel da Silva",
+      role: "Técnica Comercial",
+      years: "6 anos na SANEP",
+      quote: "Apredi a importância de ouvir os clientes, compreender suas necessidades e entregar soluções reais. Cada desafio é uma oportunidade de aprender e de contribuir para o crescimento da empresa. Aqui, sinto que meu trabalho realmente faz a diferença, e isso é muito gratificante.",
+      image: isabel,
     },
   ];
 
@@ -97,17 +100,17 @@ const TrabalharNaSanep = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Nossa Cultura
               </h2>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 Na SANEP, acreditamos que o nosso sucesso começa com as pessoas. 
                 Cultivamos um ambiente onde todos podem dar o seu melhor, crescer 
                 profissionalmente e sentir-se parte de algo maior.
               </p>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 texto-justificado">
                 A nossa cultura é construída sobre valores sólidos de respeito, 
                 integridade e colaboração. Celebramos a diversidade e acreditamos 
                 que diferentes perspetivas nos tornam mais fortes.
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground texto-justificado">
                 Investimos no bem-estar dos nossos colaboradores porque sabemos 
                 que pessoas felizes e motivadas são a chave para o sucesso sustentável.
               </p>
@@ -192,7 +195,7 @@ const TrabalharNaSanep = () => {
                     <p className="text-xs text-muted-foreground">{testimonial.years}</p>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
+                <p className="text-muted-foreground italic texto-justificado">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>

@@ -36,21 +36,15 @@ const Contato = () => {
   const offices = [
     {
       city: "Luanda (Sede)",
-      address: "Rua Major Kanhangulo, 290",
-      phone: "+244 222 123 456",
-      email: "luanda@gruposanep.ao",
+      address: "Edifício ESCOM, R. Mal. Brós Tito nº35/37, 4º andar, Luanda",
+      phone: "+244 926 159 196",
+      email: "geral@gruposanep.co.ao",
     },
     {
-      city: "Benguela",
-      address: "Av. Norton de Matos, 158",
-      phone: "+244 272 234 567",
-      email: "benguela@gruposanep.ao",
-    },
-    {
-      city: "Huambo",
-      address: "Rua Dr. António Agostinho Neto, 42",
-      phone: "+244 241 345 678",
-      email: "huambo@gruposanep.ao",
+      city: "Complexo Industrial",
+      address: "Vila Flor, Av. Comandante Fidel de Castro Cruz, Luanda, Angola",
+      phone: "+244 926 159 196",
+      email: "geral@gruposanep.co.ao",
     },
   ];
 
@@ -61,10 +55,10 @@ const Contato = () => {
         <div className="container-wide">
           <div className="max-w-3xl">
             <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
-              Fale Conosco
+              Fale Connosco
             </span>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary-foreground mt-2 mb-6">
-              Contato
+              Contacto
             </h1>
             <p className="text-xl text-primary-foreground/80">
               Estamos à sua disposição para esclarecer dúvidas, receber sugestões 
@@ -195,7 +189,6 @@ const Contato = () => {
                 </div>
                 <p className="text-muted-foreground ml-8">
                   Segunda a Sexta: 08:00 - 17:00<br />
-                  Sábado: 08:00 - 12:00
                 </p>
               </div>
             </div>
@@ -206,12 +199,8 @@ const Contato = () => {
       {/* Map Section */}
       <section className="h-96 bg-muted">
         <div className="w-full h-full flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="text-secondary mx-auto mb-4" />
-            <p className="text-muted-foreground">
-              Mapa interativo será exibido aqui
-            </p>
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.6903220321856!2d13.241059198058855!3d-8.813886470112593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f3651faf00d5%3A0xa0a91f6638810195!2sGRUPO%20SANEP!5e0!3m2!1spt-PT!2sao!4v1764807265816!5m2!1spt-PT!2sao" width="100%" height="450"></iframe>
+          
         </div>
       </section>
     </Layout>
