@@ -101,7 +101,7 @@ const MainBusinessCard = ({
   );
 
   return href ? (
-    <Link to={href} className="block w-full">
+    <Link to={href} className="block w-full" target="_blank">
       {wrapper}
     </Link>
   ) : (
@@ -119,7 +119,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2022/07/18/19/23/hand-7330658_960_720.jpg",
       logo: agroawa,
       name: "Agroawa",
-      href: "/negocios/agroawa",
+      href: "https://agroawa.co.ao/",
       category: "Retalho Alimentar, Saúde e Bem-estar",
     },
     {
@@ -127,7 +127,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_960_720.jpg",
       logo: cooperativa,
       name: "Cooperativa",
-      href: "/negocios/cooperativa",
+      href: "",
       category: "Eletrónica",
     },
     {
@@ -135,7 +135,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2016/10/09/19/19/coins-1726618_960_720.jpg",
       logo: crediangolar,
       name: "Crediangolar",
-      href: "/negocios/crediangolar",
+      href: "https://crediangolar.co.ao/",
       category: "Serviços Financeiros",
     },
     {
@@ -143,7 +143,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2025/08/17/07/43/tractor-9779346_960_720.jpg",
       logo: fazenda,
       name: "Fazenda",
-      href: "/negocios/fazenda",
+      href: "",
       category: "Agronegócio",
     },
     {
@@ -151,7 +151,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2021/11/20/09/45/pforphoto-6811307_960_720.jpg",
       logo: fibrex,
       name: "Fibrex",
-      href: "/negocios/fibrex",
+      href: "",
       category: "Materiais",
     },
     {
@@ -159,7 +159,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2017/01/31/20/48/wine-2027177_960_720.jpg",
       logo: food,
       name: "Food Factory",
-      href: "/negocios/food-factory",
+      href: "",
       category: "Indústria Alimentar",
     },
     {
@@ -167,7 +167,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2019/01/19/02/49/hercilio-luz-bridge-3941115_960_720.jpg",
       logo: regadio,
       name: "Regadio",
-      href: "/negocios/regadio",
+      href: "https://www.regadio-ao.com/",
       category: "Infraestruturas",
     },
     {
@@ -175,7 +175,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2014/08/05/03/19/bulldozer-410118_960_720.jpg",
       logo: saneplda,
       name: "Sanep Lda",
-      href: "/negocios/sanep-lda",
+      href: "",
       category: "Serviços",
     },
     {
@@ -183,7 +183,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2023/02/01/16/26/animal-7760773_960_720.jpg",
       logo: sanepnutricao,
       name: "Sanep Nutricao",
-      href: "/negocios/sanep-nutricao",
+      href: "",
       category: "Nutrição",
     },
     {
@@ -191,7 +191,7 @@ const MainBusinessesSection = () => {
         "https://cdn.pixabay.com/photo/2017/10/04/09/56/laboratory-2815641_960_720.jpg",
       logo: sanepvida,
       name: "Sanep Vida",
-      href: "/negocios/sanep-vida",
+      href: "https://sanepvida.co.ao/",
       category: "Cuidados e Bem-estar",
     },
   ];

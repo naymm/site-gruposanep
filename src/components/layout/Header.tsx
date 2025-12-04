@@ -41,6 +41,7 @@ const Header = () => {
     { title: "Distribuição", href: "/negocios/distribuicao" },
     { title: "Farmacêutica", href: "/negocios/farmaceutica" },
     { title: "Finanças", href: "/negocios/financas" },
+    { title: "Imobiliária", href: "/negocios/imobiliaria" },
     { title: "Indústria", href: "/negocios/industria" },
     { title: "Serviços", href: "/negocios/servicos" },
   ];
@@ -205,7 +206,7 @@ const Header = () => {
                           : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
                       )}
                     >
-                      Contato
+                      Contacto
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -218,7 +219,7 @@ const Header = () => {
               className="ml-4 font-semibold"
               asChild
             >
-              <Link to="/pessoas/carreiras">Trabalhe Conosco</Link>
+              <Link to="/pessoas/carreiras">Trabalhe Connosco</Link>
             </Button>
           </nav>
 

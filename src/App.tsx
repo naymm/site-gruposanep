@@ -15,6 +15,7 @@ import Farmaceutica from "./pages/negocios/Farmaceutica";
 import Financas from "./pages/negocios/Financas";
 import Industria from "./pages/negocios/Industria";
 import Servicos from "./pages/negocios/Servicos";
+import Imobiliaria from "./pages/negocios/Imobiliaria";
 import TrabalharNaSanep from "./pages/pessoas/TrabalharNaSanep";
 import TalentoJovem from "./pages/pessoas/TalentoJovem";
 import NossasPessoas from "./pages/pessoas/NossasPessoas";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/negocios/financas" element={<Financas />} />
           <Route path="/negocios/industria" element={<Industria />} />
           <Route path="/negocios/servicos" element={<Servicos />} />
+          <Route path="/negocios/imobiliaria" element={<Imobiliaria />} />
           <Route path="/pessoas/trabalhar-na-sanep" element={<TrabalharNaSanep />} />
           <Route path="/pessoas/talento-jovem" element={<TalentoJovem />} />
           <Route path="/pessoas/nossas-pessoas" element={<NossasPessoas />} />
