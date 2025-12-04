@@ -182,6 +182,21 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <Link to="/noticias">
+                    <NavigationMenuLink
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium transition-colors rounded-md",
+                        isScrolled
+                          ? "text-foreground hover:bg-muted"
+                          : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                      )}
+                    >
+                      Notícias
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
                   <Link to="/sustentabilidade">
                     <NavigationMenuLink
                       className={cn(
@@ -284,6 +299,14 @@ const Header = () => {
                   {item.title}
                 </Link>
               ))}
+
+              <Link
+                to="/noticias"
+                className="px-4 py-3 text-foreground hover:bg-muted rounded-md transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Notícias
+              </Link>
 
               <Link
                 to="/sustentabilidade"

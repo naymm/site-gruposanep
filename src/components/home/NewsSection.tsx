@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getRecentNoticias } from "@/data/noticias";
 
 interface NewsCardProps {
   image: string;
@@ -53,32 +54,25 @@ const NewsCard = ({ image, category, date, title, excerpt, href }: NewsCardProps
 };
 
 const NewsSection = () => {
-  const news = [
-    {
-      image: "https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Sustentabilidade",
-      date: "28 Nov 2024",
-      title: "SANEP lança programa de agricultura sustentável",
-      excerpt: "Iniciativa visa reduzir emissões de carbono e promover práticas agrícolas regenerativas em todas as operações.",
-      href: "/pessoas/novidades",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Expansão",
-      date: "15 Nov 2024",
-      title: "Grupo expande operações para Moçambique",
-      excerpt: "Nova subsidiária irá atuar no setor de distribuição farmacêutica, reforçando presença na região austral.",
-      href: "/pessoas/novidades",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Pessoas",
-      date: "02 Nov 2024",
-      title: "Programa Trainee 2025 recebe recorde de candidaturas",
-      excerpt: "Mais de 5.000 jovens demonstraram interesse em integrar o programa de desenvolvimento de talentos.",
-      href: "/pessoas/novidades",
-    },
-  ];
+  const recentNoticias = getRecentNoticias(3);
+  
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-AO', { 
+      day: 'numeric', 
+      month: 'short', 
+      year: 'numeric' 
+    });
+  };
+
+  const news = recentNoticias.map(noticia => ({
+    image: noticia.image,
+    category: noticia.category,
+    date: formatDate(noticia.date),
+    title: noticia.title,
+    excerpt: noticia.excerpt,
+    href: `/noticias/${noticia.slug}`,
+  }));
 
   return (
     <section className="section-padding bg-muted/30">
@@ -94,7 +88,7 @@ const NewsSection = () => {
           </div>
           
           <Button variant="outline" className="mt-4 md:mt-0" asChild>
-            <Link to="/pessoas/novidades">
+            <Link to="/noticias">
               Ver todas as notícias
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

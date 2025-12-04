@@ -21,6 +21,8 @@ import TalentoJovem from "./pages/pessoas/TalentoJovem";
 import NossasPessoas from "./pages/pessoas/NossasPessoas";
 import Carreiras from "./pages/pessoas/Carreiras";
 import Novidades from "./pages/pessoas/Novidades";
+import Noticias from "./pages/Noticias";
+import NoticiaSingle from "./pages/NoticiaSingle";
 import Contato from "./pages/Contato";
 import Sustentabilidade from "./pages/Sustentabilidade";
 import NotFound from "./pages/NotFound";
@@ -52,6 +54,8 @@ const App = () => (
           <Route path="/pessoas/nossas-pessoas" element={<NossasPessoas />} />
           <Route path="/pessoas/carreiras" element={<Carreiras />} />
           <Route path="/pessoas/novidades" element={<Novidades />} />
+          <Route path="/noticias" element={<Noticias />} />
+          <Route path="/noticias/:slug" element={<NoticiaSingle />} />
           <Route path="/sustentabilidade" element={<Sustentabilidade />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="*" element={<NotFound />} />
