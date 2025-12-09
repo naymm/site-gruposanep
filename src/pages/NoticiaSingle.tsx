@@ -6,6 +6,7 @@ import { Calendar, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
 import { useNoticiaBySlug } from "@/hooks/useNoticias";
 import { useNoticiasRecentes } from "@/hooks/useNoticias";
 import { useIncrementarVisualizacoes } from "@/hooks/useNoticias";
+import { GaleriaNoticia } from "@/components/noticias/GaleriaNoticia";
 import { Loader2 } from "lucide-react";
 
 const NoticiaSingle = () => {
@@ -116,7 +117,7 @@ const NoticiaSingle = () => {
       {/* Featured Image */}
       <section className="bg-background">
         <div className="container-wide">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto img-destaque">
             <img
               src={noticia.imagem_principal}
               alt={noticia.titulo}
@@ -129,7 +130,7 @@ const NoticiaSingle = () => {
       {/* Content */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <div
               className="prose prose-lg max-w-none
                 prose-headings:font-serif prose-headings:font-bold
@@ -138,12 +139,17 @@ const NoticiaSingle = () => {
                 prose-p:text-muted-foreground prose-p:mb-4 prose-p:leading-relaxed
                 prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-4
                 prose-li:text-muted-foreground prose-li:mb-2
-                prose-strong:text-foreground prose-strong:font-bold"
+                prose-strong:text-foreground prose-strong:font-bold conteudo-noticia"
               dangerouslySetInnerHTML={{ __html: noticia.conteudo }}
             />
           </div>
         </div>
       </section>
+
+      {/* Galeria de Imagens */}
+      {noticia.imagens_galeria && noticia.imagens_galeria.length > 0 && (
+        <GaleriaNoticia imagens={noticia.imagens_galeria} />
+      )}
 
       {/* Related News */}
       {relatedNoticias.length > 0 && (

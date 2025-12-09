@@ -271,3 +271,11 @@
 .caixas {
   margin: 0 auto !important;
 }
+
+.img-destaque {
+  margin-top: 50px;
+}
+
+.conteudo-noticia {
+  text-align: justify !important;
+}

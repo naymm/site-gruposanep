@@ -6,9 +6,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { NoticiaForm } from "@/components/admin/NoticiaForm";
 import { useNoticiaBySlug, useUpdateNoticia } from "@/hooks/useNoticias";
+import { getImagensByNoticiaId, adicionarImagens, deletarImagem } from "@/lib/supabase/services/galeria";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import type { UpdateNoticiaInput } from "@/types/noticias";
+import type { UpdateNoticiaInput, ImagemGaleria } from "@/types/noticias";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/lib/supabase";
 
@@ -33,7 +34,14 @@ const NoticiaEditar = () => {
     enabled: !!id,
   });
 
-  const handleSubmit = async (data: UpdateNoticiaInput) => {
+  // Buscar imagens da galeria
+  const { data: imagensExistentes } = useQuery({
+    queryKey: ['imagens-galeria', id],
+    queryFn: () => getImagensByNoticiaId(id!),
+    enabled: !!id,
+  });
+
+  const handleSubmit = async (data: UpdateNoticiaInput, imagensGaleria?: ImagemGaleria[]) => {
     if (!id) return;
 
     try {
@@ -41,6 +49,35 @@ const NoticiaEditar = () => {
         id,
         ...data,
       });
+
+      // Gerenciar imagens da galeria
+      if (imagensGaleria) {
+        const imagensExistentesIds = new Set((imagensExistentes || []).map(img => img.id));
+        const novasImagens = imagensGaleria.filter(img => !imagensExistentesIds.has(img.id));
+        const imagensRemovidas = (imagensExistentes || []).filter(
+          img => !imagensGaleria.some(nova => nova.id === img.id)
+        );
+
+        // Adicionar novas imagens
+        if (novasImagens.length > 0) {
+          await adicionarImagens(
+            id,
+            novasImagens.map(img => ({
+              url: img.url,
+              legenda: img.legenda,
+              ordem: img.ordem,
+            }))
+          );
+        }
+
+        // Remover imagens deletadas
+        for (const img of imagensRemovidas) {
+          if (!img.id.startsWith('temp-')) {
+            await deletarImagem(img.id);
+          }
+        }
+      }
+
       toast.success("Notícia atualizada com sucesso!");
       navigate("/admin/noticias");
     } catch (error) {
@@ -85,7 +122,10 @@ const NoticiaEditar = () => {
 
         <div className="bg-card rounded-lg border border-border p-6">
           <NoticiaForm
-            noticia={noticia}
+            noticia={{
+              ...noticia,
+              imagens_galeria: imagensExistentes || [],
+            }}
             onSubmit={handleSubmit}
             isLoading={updateNoticia.isPending}
           />

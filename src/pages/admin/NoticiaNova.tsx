@@ -6,16 +6,35 @@ import { useNavigate } from "react-router-dom";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { NoticiaForm } from "@/components/admin/NoticiaForm";
 import { useCreateNoticia } from "@/hooks/useNoticias";
+import { adicionarImagens } from "@/lib/supabase/services/galeria";
 import { toast } from "sonner";
-import type { CreateNoticiaInput } from "@/types/noticias";
+import type { CreateNoticiaInput, ImagemGaleria } from "@/types/noticias";
 
 const NoticiaNova = () => {
   const navigate = useNavigate();
   const createNoticia = useCreateNoticia();
 
-  const handleSubmit = async (data: CreateNoticiaInput) => {
+  const handleSubmit = async (data: CreateNoticiaInput, imagensGaleria?: ImagemGaleria[]) => {
     try {
-      await createNoticia.mutateAsync(data);
+      const noticia = await createNoticia.mutateAsync(data);
+      
+      // Adicionar imagens da galeria se houver
+      if (imagensGaleria && imagensGaleria.length > 0) {
+        try {
+          await adicionarImagens(
+            noticia.id,
+            imagensGaleria.map(img => ({
+              url: img.url,
+              legenda: img.legenda,
+              ordem: img.ordem,
+            }))
+          );
+        } catch (error) {
+          console.error('Erro ao adicionar imagens da galeria:', error);
+          toast.warning('Notícia criada, mas houve erro ao adicionar algumas imagens');
+        }
+      }
+      
       toast.success("Notícia criada com sucesso!");
       navigate("/admin/noticias");
     } catch (error) {

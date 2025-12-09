@@ -2,7 +2,7 @@
  * Formulário reutilizável para criar/editar notícias
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -39,7 +39,8 @@ import { cn } from "@/lib/utils";
 import { useCategorias } from "@/hooks/useCategorias";
 import { useAutores } from "@/hooks/useAutores";
 import { ImageUpload } from "./ImageUpload";
-import type { Noticia, CreateNoticiaInput } from "@/types/noticias";
+import { GaleriaImagens } from "./GaleriaImagens";
+import type { Noticia, CreateNoticiaInput, ImagemGaleria } from "@/types/noticias";
 
 const noticiaSchema = z.object({
   titulo: z.string().min(5, "Título deve ter pelo menos 5 caracteres"),
@@ -58,13 +59,16 @@ type NoticiaFormValues = z.infer<typeof noticiaSchema>;
 
 interface NoticiaFormProps {
   noticia?: Noticia;
-  onSubmit: (data: CreateNoticiaInput) => Promise<void>;
+  onSubmit: (data: CreateNoticiaInput, imagensGaleria?: ImagemGaleria[]) => Promise<void>;
   isLoading?: boolean;
 }
 
 export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) {
   const { data: categorias } = useCategorias();
   const { data: autores } = useAutores();
+  const [imagensGaleria, setImagensGaleria] = useState<ImagemGaleria[]>(
+    noticia?.imagens_galeria || []
+  );
 
   const form = useForm<NoticiaFormValues>({
     resolver: zodResolver(noticiaSchema),
@@ -99,10 +103,13 @@ export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) 
   }, [titulo, noticia, form]);
 
   const handleSubmit = async (data: NoticiaFormValues) => {
-    await onSubmit({
-      ...data,
-      data_publicacao: data.data_publicacao.toISOString(),
-    });
+    await onSubmit(
+      {
+        ...data,
+        data_publicacao: data.data_publicacao.toISOString(),
+      },
+      imagensGaleria
+    );
   };
 
   return (
@@ -318,6 +325,16 @@ export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) 
             </FormItem>
           )}
         />
+
+        {/* Galeria de Imagens */}
+        <div className="space-y-4">
+          <GaleriaImagens
+            noticiaId={noticia?.id}
+            imagens={imagensGaleria}
+            onImagensChange={setImagensGaleria}
+            disabled={isLoading}
+          />
+        </div>
 
         <div className="flex gap-6">
           <FormField

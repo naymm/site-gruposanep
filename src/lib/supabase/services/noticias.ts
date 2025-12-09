@@ -36,7 +36,8 @@ export async function getAllNoticias(
       `
       *,
       categoria:categorias(*),
-      autor:autores(*)
+      autor:autores(*),
+      imagens_galeria:imagens_noticias(*)
     `,
       { count: 'exact' }
     );
@@ -101,7 +102,8 @@ export async function getNoticiaBySlug(
       `
       *,
       categoria:categorias(*),
-      autor:autores(*)
+      autor:autores(*),
+      imagens_galeria:imagens_noticias(*)
     `
     )
     .eq('slug', slug)
@@ -133,7 +135,8 @@ export async function getNoticiasDestaque(
       `
       *,
       categoria:categorias(*),
-      autor:autores(*)
+      autor:autores(*),
+      imagens_galeria:imagens_noticias(*)
     `
     )
     .eq('destaque', true)
@@ -162,7 +165,8 @@ export async function getNoticiasRecentes(
       `
       *,
       categoria:categorias(*),
-      autor:autores(*)
+      autor:autores(*),
+      imagens_galeria:imagens_noticias(*)
     `
     )
     .eq('publicada', true)

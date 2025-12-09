@@ -27,6 +27,16 @@ export interface Autor {
   updated_at: string;
 }
 
+export interface ImagemGaleria {
+  id: string;
+  noticia_id: string;
+  url: string;
+  ordem: number;
+  legenda?: string;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Noticia {
   id: string;
   titulo: string;
@@ -45,6 +55,7 @@ export interface Noticia {
   // Relacionamentos (populados via JOIN)
   categoria?: Categoria;
   autor?: Autor;
+  imagens_galeria?: ImagemGaleria[];
 }
 
 export interface NoticiaWithRelations extends Noticia {
