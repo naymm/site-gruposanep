@@ -296,3 +296,4 @@ export const getRecentNoticias = (limit: number = 6): Noticia[] => {
     .slice(0, limit);
 };
 
+

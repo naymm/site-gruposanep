@@ -67,3 +67,4 @@ export async function getCategoriaById(id: string): Promise<Categoria | null> {
   return data as Categoria;
 }
 
+

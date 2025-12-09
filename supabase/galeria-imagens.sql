@@ -75,3 +75,4 @@ COMMENT ON TABLE imagens_noticias IS 'Galeria de imagens adicionais para cada no
 COMMENT ON COLUMN imagens_noticias.ordem IS 'Ordem de exibição das imagens na galeria';
 COMMENT ON COLUMN imagens_noticias.legenda IS 'Legenda opcional para a imagem';
 
+

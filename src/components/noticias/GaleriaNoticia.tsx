@@ -143,3 +143,4 @@ export function GaleriaNoticia({ imagens }: GaleriaNoticiaProps) {
   );
 }
 
+

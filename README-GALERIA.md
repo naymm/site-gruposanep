@@ -177,3 +177,4 @@ await deletarImagem(imagemId);
 3. **Filtros**: Aplicar filtros nas imagens
 4. **Vídeos**: Suporte a vídeos na galeria
 
+

@@ -110,3 +110,4 @@ Se o erro persistir:
    - Remova todas as políticas: `DROP POLICY ... ON noticias;`
    - Execute o script `fix-rls-policies.sql` novamente
 
+

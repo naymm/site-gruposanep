@@ -41,3 +41,4 @@ USING (bucket_id = 'noticias');
 -- 3. Você pode ajustar as políticas conforme necessário
 -- 4. Para criar usuários admin, use o Authentication no Supabase Dashboard
 
+

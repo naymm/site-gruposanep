@@ -247,3 +247,4 @@ Se encontrar problemas:
 3. Verifique se as variáveis de ambiente estão corretas
 4. Verifique se o schema SQL foi executado corretamente
 
+
