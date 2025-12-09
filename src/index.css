@@ -379,3 +379,9 @@
   pointer-events: none;
   height: 0;
 }
+
+.caixa-video {
+  background-color: #222 !important;
+  border: none;
+  color: #fff;
+}

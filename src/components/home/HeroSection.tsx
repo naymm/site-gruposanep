@@ -1,9 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import sanepVideo from "../../video/sanepvideo.mp4";
+import videoresumo from "../../video/videoresumo.mp4";
 
 const HeroSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video with Overlay */}
@@ -55,6 +65,7 @@ const HeroSection = () => {
               size="lg"
               variant="ghost"
               className="text-base font-semibold bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 textoBtn-bugado"
+              onClick={() => setIsVideoOpen(true)}
             >
               <Play className="mr-2 h-5 w-5" />
               Ver Vídeo Institucional
@@ -62,6 +73,23 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl caixa-video">
+          <DialogHeader>
+            <DialogTitle></DialogTitle>
+          </DialogHeader>
+          <div className="relative w-full">
+            <video
+              className="w-full h-full rounded-lg"
+              controls
+              playsInline
+            >
+              <source src={videoresumo} type="video/mp4" />
+            </video>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
