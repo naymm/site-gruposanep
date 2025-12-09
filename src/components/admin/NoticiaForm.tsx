@@ -40,6 +40,7 @@ import { useCategorias } from "@/hooks/useCategorias";
 import { useAutores } from "@/hooks/useAutores";
 import { ImageUpload } from "./ImageUpload";
 import { GaleriaImagens } from "./GaleriaImagens";
+import { RichTextEditor } from "./RichTextEditor";
 import type { Noticia, CreateNoticiaInput, ImagemGaleria } from "@/types/noticias";
 
 const noticiaSchema = z.object({
@@ -173,14 +174,15 @@ export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) 
             <FormItem>
               <FormLabel>Conteúdo *</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Conteúdo completo da notícia (HTML permitido)..."
-                  rows={15}
-                  {...field}
+                <RichTextEditor
+                  content={field.value}
+                  onChange={field.onChange}
+                  placeholder="Escreva o conteúdo da notícia..."
+                  disabled={isLoading}
                 />
               </FormControl>
               <FormDescription>
-                Você pode usar HTML para formatar o conteúdo
+                Use a barra de ferramentas para formatar o texto
               </FormDescription>
               <FormMessage />
             </FormItem>
