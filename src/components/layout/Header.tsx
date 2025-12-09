@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { LanguageSelector } from "./LanguageSelector";
 
 
 import logoWhite from "../../img/logo-light.png";
@@ -236,6 +237,16 @@ const Header = () => {
             >
               <Link to="/pessoas/carreiras">Trabalhe Connosco</Link>
             </Button>
+
+            <LanguageSelector
+              variant="ghost"
+              className={cn(
+                "ml-2",
+                isScrolled
+                  ? "text-foreground hover:bg-muted"
+                  : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              )}
+            />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -324,12 +335,17 @@ const Header = () => {
                 Contato
               </Link>
 
-              <div className="px-4 pt-4">
+              <div className="px-4 pt-4 space-y-3">
                 <Button variant="secondary" className="w-full font-semibold" asChild>
                   <Link to="/pessoas/carreiras" onClick={() => setIsOpen(false)}>
                     Trabalhe Conosco
                   </Link>
                 </Button>
+                
+                <div className="flex items-center justify-between px-2 py-2 border-t border-border">
+                  <span className="text-sm font-medium text-muted-foreground">Idioma</span>
+                  <LanguageSelector variant="ghost" className="text-foreground" />
+                </div>
               </div>
             </nav>
           </div>
