@@ -29,6 +29,8 @@ import NotFound from "./pages/NotFound";
 import NoticiasAdmin from "./pages/admin/NoticiasAdmin";
 import NoticiaNova from "./pages/admin/NoticiaNova";
 import NoticiaEditar from "./pages/admin/NoticiaEditar";
+import Login from "./pages/admin/Login";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -62,9 +64,31 @@ const App = () => (
           <Route path="/sustentabilidade" element={<Sustentabilidade />} />
           <Route path="/contato" element={<Contato />} />
           {/* Rotas Administrativas */}
-          <Route path="/admin/noticias" element={<NoticiasAdmin />} />
-          <Route path="/admin/noticias/nova" element={<NoticiaNova />} />
-          <Route path="/admin/noticias/editar/:id" element={<NoticiaEditar />} />
+          <Route path="/admin/login" element={<Login />} />
+          <Route
+            path="/admin/noticias"
+            element={
+              <ProtectedRoute>
+                <NoticiasAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/noticias/nova"
+            element={
+              <ProtectedRoute>
+                <NoticiaNova />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/noticias/editar/:id"
+            element={
+              <ProtectedRoute>
+                <NoticiaEditar />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

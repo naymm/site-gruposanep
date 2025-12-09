@@ -3,7 +3,7 @@
  */
 
 import { useParams, useNavigate } from "react-router-dom";
-import Layout from "@/components/layout/Layout";
+import AdminLayout from "@/components/admin/AdminLayout";
 import { NoticiaForm } from "@/components/admin/NoticiaForm";
 import { useNoticiaBySlug, useUpdateNoticia } from "@/hooks/useNoticias";
 import { Loader2 } from "lucide-react";
@@ -51,28 +51,28 @@ const NoticiaEditar = () => {
 
   if (isLoading) {
     return (
-      <Layout>
+      <AdminLayout>
         <div className="container-wide py-12">
           <div className="flex justify-center items-center py-12">
             <Loader2 className="w-8 h-8 text-primary animate-spin" />
           </div>
         </div>
-      </Layout>
+      </AdminLayout>
     );
   }
 
   if (!noticia) {
     return (
-      <Layout>
+      <AdminLayout>
         <div className="container-wide py-12">
           <p>Notícia não encontrada</p>
         </div>
-      </Layout>
+      </AdminLayout>
     );
   }
 
   return (
-    <Layout>
+    <AdminLayout>
       <div className="container-wide py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-serif font-bold text-foreground mb-2">
@@ -91,7 +91,7 @@ const NoticiaEditar = () => {
           />
         </div>
       </div>
-    </Layout>
+    </AdminLayout>
   );
 };
 

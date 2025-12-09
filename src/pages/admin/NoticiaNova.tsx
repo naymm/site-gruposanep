@@ -3,7 +3,7 @@
  */
 
 import { useNavigate } from "react-router-dom";
-import Layout from "@/components/layout/Layout";
+import AdminLayout from "@/components/admin/AdminLayout";
 import { NoticiaForm } from "@/components/admin/NoticiaForm";
 import { useCreateNoticia } from "@/hooks/useNoticias";
 import { toast } from "sonner";
@@ -25,7 +25,7 @@ const NoticiaNova = () => {
   };
 
   return (
-    <Layout>
+    <AdminLayout>
       <div className="container-wide py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-serif font-bold text-foreground mb-2">
@@ -43,7 +43,7 @@ const NoticiaNova = () => {
           />
         </div>
       </div>
-    </Layout>
+    </AdminLayout>
   );
 };
 

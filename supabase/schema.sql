@@ -150,9 +150,30 @@ CREATE POLICY "Notícias publicadas são públicas para leitura"
   );
 
 -- Políticas para inserção/atualização (requer autenticação)
--- NOTA: Ajuste essas políticas conforme sua necessidade de autenticação
--- Por enquanto, desabilitamos inserção/atualização via RLS
--- Você pode criar políticas específicas se usar autenticação Supabase
+-- Permitir que usuários autenticados vejam todas as notícias (incluindo rascunhos)
+CREATE POLICY "Usuários autenticados podem ver todas as notícias"
+  ON noticias FOR SELECT
+  TO authenticated
+  USING (true);
+
+-- Permitir que usuários autenticados criem notícias
+CREATE POLICY "Usuários autenticados podem criar notícias"
+  ON noticias FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+-- Permitir que usuários autenticados atualizem notícias
+CREATE POLICY "Usuários autenticados podem atualizar notícias"
+  ON noticias FOR UPDATE
+  TO authenticated
+  USING (true)
+  WITH CHECK (true);
+
+-- Permitir que usuários autenticados deletem notícias
+CREATE POLICY "Usuários autenticados podem deletar notícias"
+  ON noticias FOR DELETE
+  TO authenticated
+  USING (true);
 
 -- ============================================
 -- DADOS INICIAIS (Seed)

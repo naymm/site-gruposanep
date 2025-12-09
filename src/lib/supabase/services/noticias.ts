@@ -211,6 +211,12 @@ export async function incrementarVisualizacoes(
 export async function createNoticia(
   input: CreateNoticiaInput
 ): Promise<Noticia> {
+  // Verificar se o usuário está autenticado
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    throw new Error('Você precisa estar autenticado para criar notícias');
+  }
+
   const { data, error } = await supabase
     .from('noticias')
     .insert({
@@ -225,6 +231,8 @@ export async function createNoticia(
 
   if (error) {
     console.error('Erro ao criar notícia:', error);
+    console.error('Detalhes:', error.details);
+    console.error('Código:', error.code);
     throw new Error(`Erro ao criar notícia: ${error.message}`);
   }
 
@@ -237,6 +245,12 @@ export async function createNoticia(
 export async function updateNoticia(
   input: UpdateNoticiaInput
 ): Promise<Noticia> {
+  // Verificar se o usuário está autenticado
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    throw new Error('Você precisa estar autenticado para atualizar notícias');
+  }
+
   const { id, ...updateData } = input;
 
   const { data, error } = await supabase
@@ -251,6 +265,8 @@ export async function updateNoticia(
 
   if (error) {
     console.error('Erro ao atualizar notícia:', error);
+    console.error('Detalhes:', error.details);
+    console.error('Código:', error.code);
     throw new Error(`Erro ao atualizar notícia: ${error.message}`);
   }
 
@@ -261,10 +277,18 @@ export async function updateNoticia(
  * Deletar notícia (requer autenticação)
  */
 export async function deleteNoticia(id: string): Promise<void> {
+  // Verificar se o usuário está autenticado
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    throw new Error('Você precisa estar autenticado para deletar notícias');
+  }
+
   const { error } = await supabase.from('noticias').delete().eq('id', id);
 
   if (error) {
     console.error('Erro ao deletar notícia:', error);
+    console.error('Detalhes:', error.details);
+    console.error('Código:', error.code);
     throw new Error(`Erro ao deletar notícia: ${error.message}`);
   }
 }

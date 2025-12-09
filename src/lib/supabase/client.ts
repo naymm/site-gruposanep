@@ -16,8 +16,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
-    persistSession: false, // Não precisamos de autenticação para leitura pública
-    autoRefreshToken: false,
+    persistSession: true, // Manter sessão para área admin
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
   },
 });
 

@@ -6,5 +6,6 @@ export { supabase } from './client';
 export * from './services/noticias';
 export * from './services/categorias';
 export * from './services/autores';
+export * from './auth';
+export * from './storage';
 export type { Database } from './database.types';
-

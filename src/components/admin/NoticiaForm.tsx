@@ -38,6 +38,7 @@ import { CalendarIcon, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCategorias } from "@/hooks/useCategorias";
 import { useAutores } from "@/hooks/useAutores";
+import { ImageUpload } from "./ImageUpload";
 import type { Noticia, CreateNoticiaInput } from "@/types/noticias";
 
 const noticiaSchema = z.object({
@@ -45,7 +46,7 @@ const noticiaSchema = z.object({
   slug: z.string().min(3, "Slug deve ter pelo menos 3 caracteres"),
   resumo: z.string().min(20, "Resumo deve ter pelo menos 20 caracteres"),
   conteudo: z.string().min(50, "Conteúdo deve ter pelo menos 50 caracteres"),
-  imagem_principal: z.string().url("URL da imagem inválida"),
+  imagem_principal: z.string().min(1, "Imagem é obrigatória"),
   destaque: z.boolean().default(false),
   publicada: z.boolean().default(false),
   data_publicacao: z.date(),
@@ -184,7 +185,28 @@ export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) 
           name="imagem_principal"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>URL da Imagem Principal *</FormLabel>
+              <FormControl>
+                <ImageUpload
+                  value={field.value}
+                  onChange={field.onChange}
+                  disabled={isLoading}
+                />
+              </FormControl>
+              <FormDescription>
+                Faça upload de uma imagem ou cole uma URL
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Campo alternativo para URL manual */}
+        <FormField
+          control={form.control}
+          name="imagem_principal"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Ou cole uma URL</FormLabel>
               <FormControl>
                 <Input
                   type="url"
@@ -192,6 +214,9 @@ export function NoticiaForm({ noticia, onSubmit, isLoading }: NoticiaFormProps) 
                   {...field}
                 />
               </FormControl>
+              <FormDescription>
+                Alternativamente, você pode colar uma URL de imagem
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
