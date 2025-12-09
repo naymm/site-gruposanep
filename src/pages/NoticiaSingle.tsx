@@ -1,15 +1,40 @@
+import { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowLeft, ArrowRight, Tag, Share2 } from "lucide-react";
-import { getNoticiaBySlug, getRecentNoticias, Noticia } from "@/data/noticias";
+import { Calendar, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
+import { useNoticiaBySlug } from "@/hooks/useNoticias";
+import { useNoticiasRecentes } from "@/hooks/useNoticias";
+import { useIncrementarVisualizacoes } from "@/hooks/useNoticias";
+import { Loader2 } from "lucide-react";
 
 const NoticiaSingle = () => {
   const { slug } = useParams<{ slug: string }>();
-  const noticia = slug ? getNoticiaBySlug(slug) : null;
-  const recentNoticias = getRecentNoticias(3).filter(n => n.slug !== slug);
+  const { data: noticia, isLoading, error } = useNoticiaBySlug(slug || '');
+  const { data: recentNoticias } = useNoticiasRecentes(3);
+  const incrementViews = useIncrementarVisualizacoes();
 
-  if (!noticia) {
+  // Incrementar visualizações quando a notícia é carregada
+  useEffect(() => {
+    if (noticia?.id) {
+      incrementViews.mutate(noticia.id);
+    }
+  }, [noticia?.id]);
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <section className="section-padding bg-background">
+          <div className="container-wide text-center py-12">
+            <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
+            <p className="text-muted-foreground">A carregar notícia...</p>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
+
+  if (error || !noticia) {
     return <Navigate to="/noticias" replace />;
   }
 
@@ -25,8 +50,8 @@ const NoticiaSingle = () => {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: noticia.title,
-        text: noticia.excerpt,
+        title: noticia.titulo,
+        text: noticia.resumo,
         url: window.location.href,
       });
     } else {
@@ -34,6 +59,8 @@ const NoticiaSingle = () => {
       alert('Link copiado para a área de transferência!');
     }
   };
+
+  const relatedNoticias = recentNoticias?.filter(n => n.slug !== slug) || [];
 
   return (
     <Layout>
@@ -54,23 +81,23 @@ const NoticiaSingle = () => {
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-4">
               <span className="px-3 py-1 bg-secondary/20 text-secondary text-sm font-medium rounded-full">
-                {noticia.category}
+                {noticia.categoria?.nome || 'Sem categoria'}
               </span>
               <span className="text-sm text-primary-foreground/80 flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
-                {formatDate(noticia.date)}
+                {formatDate(noticia.data_publicacao)}
               </span>
               <span className="text-sm text-primary-foreground/60">
-                Por {noticia.author}
+                Por {noticia.autor?.nome || 'Equipa de Comunicação'}
               </span>
             </div>
             
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary-foreground mb-6">
-              {noticia.title}
+              {noticia.titulo}
             </h1>
             
             <p className="text-xl text-primary-foreground/80 mb-6">
-              {noticia.excerpt}
+              {noticia.resumo}
             </p>
 
             <Button
@@ -91,8 +118,8 @@ const NoticiaSingle = () => {
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
             <img
-              src={noticia.image}
-              alt={noticia.title}
+              src={noticia.imagem_principal}
+              alt={noticia.titulo}
               className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
             />
           </div>
@@ -112,47 +139,47 @@ const NoticiaSingle = () => {
                 prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-4
                 prose-li:text-muted-foreground prose-li:mb-2
                 prose-strong:text-foreground prose-strong:font-bold"
-              dangerouslySetInnerHTML={{ __html: noticia.content }}
+              dangerouslySetInnerHTML={{ __html: noticia.conteudo }}
             />
           </div>
         </div>
       </section>
 
       {/* Related News */}
-      {recentNoticias.length > 0 && (
+      {relatedNoticias.length > 0 && (
         <section className="section-padding bg-muted/30">
           <div className="container-wide">
             <h2 className="text-3xl font-serif font-bold text-foreground mb-8">
               Notícias Relacionadas
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              {recentNoticias.map((related) => (
+              {relatedNoticias.map((related) => (
                 <article
                   key={related.id}
                   className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
                 >
                   <div className="relative overflow-hidden">
                     <img
-                      src={related.image}
-                      alt={related.title}
+                      src={related.imagem_principal}
+                      alt={related.titulo}
                       className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3">
                       <span className="px-2 py-1 bg-secondary/90 text-secondary-foreground text-xs font-medium rounded">
-                        {related.category}
+                        {related.categoria?.nome || 'Sem categoria'}
                       </span>
                     </div>
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                       <Calendar className="w-4 h-4" />
-                      {formatDate(related.date)}
+                      {formatDate(related.data_publicacao)}
                     </div>
                     <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {related.title}
+                      {related.titulo}
                     </h3>
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                      {related.excerpt}
+                      {related.resumo}
                     </p>
                     <Button 
                       variant="ghost" 
@@ -202,4 +229,3 @@ const NoticiaSingle = () => {
 };
 
 export default NoticiaSingle;
-

@@ -26,6 +26,9 @@ import NoticiaSingle from "./pages/NoticiaSingle";
 import Contato from "./pages/Contato";
 import Sustentabilidade from "./pages/Sustentabilidade";
 import NotFound from "./pages/NotFound";
+import NoticiasAdmin from "./pages/admin/NoticiasAdmin";
+import NoticiaNova from "./pages/admin/NoticiaNova";
+import NoticiaEditar from "./pages/admin/NoticiaEditar";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +61,10 @@ const App = () => (
           <Route path="/noticias/:slug" element={<NoticiaSingle />} />
           <Route path="/sustentabilidade" element={<Sustentabilidade />} />
           <Route path="/contato" element={<Contato />} />
+          {/* Rotas Administrativas */}
+          <Route path="/admin/noticias" element={<NoticiasAdmin />} />
+          <Route path="/admin/noticias/nova" element={<NoticiaNova />} />
+          <Route path="/admin/noticias/editar/:id" element={<NoticiaEditar />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

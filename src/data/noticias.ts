@@ -255,32 +255,22 @@ export const noticias: Noticia[] = [
   {
     id: "9",
     slug: "programa-agricultura-sustentavel",
-    title: "SANEP lança programa de agricultura sustentável",
+    title: "Iª Reunião Extraordinária do Conselho de Administração do Grupo SANEP de 2025",
     excerpt: "Iniciativa visa reduzir emissões de carbono e promover práticas agrícolas regenerativas em todas as operações.",
     content: `
-      <p>O Grupo SANEP lançou um programa abrangente de agricultura sustentável que visa reduzir as emissões de carbono e promover práticas agrícolas regenerativas em todas as suas operações agrícolas.</p>
-      
-      <h3>Sustentabilidade em Foco</h3>
-      <p>O programa inclui:</p>
-      <ul>
-        <li>Adoção de técnicas de agricultura regenerativa</li>
-        <li>Redução do uso de pesticidas e fertilizantes químicos</li>
-        <li>Implementação de sistemas de irrigação eficientes</li>
-        <li>Proteção da biodiversidade</li>
-        <li>Gestão sustentável da água</li>
-      </ul>
-      
+      <p>Nesta sexta-feira, 17, realizamos a primeira Reunião Extraordinária do Conselho de Administração do Grupo SANEP. Este encontro foi marcado por discussões estratégicas e tomadas de decisões essenciais para o fortalecimento do crescimento e a promoção da inovação em todas as nossas unidades de negócios.</p>
+      <p>A reunião foi presidida pelo Presidente do Conselho de Administração, Luís Troso, e contou com a presença de todos os membros do Conselho, bem como de representantes das diferentes unidades de negócios do Grupo.
+      </p>
+      <p>As principais discussões centraram-se no planeamento estratégico para o ano de 2026, incluindo a definição de metas claras para o crescimento da empresa e a promoção da inovação em todas as áreas.
+      </p>
+      <p>Foi também abordada a necessidade de fortalecer a gestão de riscos e a implementação de medidas de segurança em todas as operações, garantindo a estabilidade e a sustentabilidade do Grupo.</p>
       <h3>Metas Ambientais</h3>
       <p>O programa estabelece metas ambiciosas para 2025:</p>
-      <ul>
-        <li>Redução de 30% nas emissões de carbono</li>
-        <li>Uso de 100% de energia renovável nas operações</li>
-        <li>Zero desperdício em aterros sanitários</li>
-      </ul>
+     
       
       <p>Este programa reforça o compromisso do Grupo SANEP com a sustentabilidade e a responsabilidade ambiental.</p>
     `,
-    image: "https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://gruposanep.co.ao/wp-content/uploads/2025/01/CapaN-2.webp",
     category: "Sustentabilidade",
     date: "2024-11-28",
     author: "Equipa de Comunicação",

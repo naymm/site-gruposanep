@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getRecentNoticias } from "@/data/noticias";
+import { useNoticiasRecentes } from "@/hooks/useNoticias";
+import { Loader2 } from "lucide-react";
 
 interface NewsCardProps {
   image: string;
@@ -54,7 +55,7 @@ const NewsCard = ({ image, category, date, title, excerpt, href }: NewsCardProps
 };
 
 const NewsSection = () => {
-  const recentNoticias = getRecentNoticias(3);
+  const { data: recentNoticias, isLoading } = useNoticiasRecentes(3);
   
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -65,14 +66,40 @@ const NewsSection = () => {
     });
   };
 
-  const news = recentNoticias.map(noticia => ({
-    image: noticia.image,
-    category: noticia.category,
-    date: formatDate(noticia.date),
-    title: noticia.title,
-    excerpt: noticia.excerpt,
+  const news = recentNoticias?.map(noticia => ({
+    image: noticia.imagem_principal,
+    category: noticia.categoria?.nome || 'Notícias',
+    date: formatDate(noticia.data_publicacao),
+    title: noticia.titulo,
+    excerpt: noticia.resumo,
     href: `/noticias/${noticia.slug}`,
-  }));
+  })) || [];
+
+  if (isLoading) {
+    return (
+      <section className="section-padding bg-muted/30">
+        <div className="container-wide">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+                Novidades
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-2">
+                Últimas Notícias
+              </h2>
+            </div>
+          </div>
+          <div className="flex justify-center py-12">
+            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (news.length === 0) {
+    return null; // Não mostrar seção se não houver notícias
+  }
 
   return (
     <section className="section-padding bg-muted/30">
@@ -96,8 +123,8 @@ const NewsSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {news.map((item, index) => (
-            <NewsCard key={index} {...item} />
+          {news.map((item) => (
+            <NewsCard key={item.href} {...item} />
           ))}
         </div>
       </div>
