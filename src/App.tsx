@@ -30,6 +30,8 @@ import NotFound from "./pages/NotFound";
 import NoticiasAdmin from "./pages/admin/NoticiasAdmin";
 import NoticiaNova from "./pages/admin/NoticiaNova";
 import NoticiaEditar from "./pages/admin/NoticiaEditar";
+import CandidaturasAdmin from "./pages/admin/CandidaturasAdmin";
+import CandidaturaDetalhes from "./pages/admin/CandidaturaDetalhes";
 import Login from "./pages/admin/Login";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 
@@ -88,6 +90,22 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <NoticiaEditar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/candidaturas"
+            element={
+              <ProtectedRoute>
+                <CandidaturasAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/candidaturas/:id"
+            element={
+              <ProtectedRoute>
+                <CandidaturaDetalhes />
               </ProtectedRoute>
             }
           />

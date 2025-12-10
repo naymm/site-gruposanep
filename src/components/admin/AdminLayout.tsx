@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth, useSignOut } from '@/hooks/useAuth';
-import { LogOut, Home, Newspaper } from 'lucide-react';
+import { LogOut, Home, Newspaper, Users } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -66,6 +66,13 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 >
                   <Link to="/admin/noticias">Notícias</Link>
                 </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                >
+                  <Link to="/admin/candidaturas">Candidaturas</Link>
+                </Button>
               </nav>
             </div>
 
@@ -106,6 +113,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <Link to="/admin/noticias">
                       <Newspaper className="w-4 h-4 mr-2" />
                       Gerenciar Notícias
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/admin/candidaturas">
+                      <Users className="w-4 h-4 mr-2" />
+                      Gerenciar Candidaturas
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
