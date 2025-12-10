@@ -11,11 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contato = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,13 +26,73 @@ const Contato = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Mapear valores do select para textos legíveis
+  const getSubjectLabel = (value: string) => {
+    const subjects: Record<string, string> = {
+      general: "Informação Geral",
+      partnership: "Parceria de Negócio",
+      careers: "Carreiras",
+      press: "Imprensa",
+      other: "Outro",
+    };
+    return subjects[value] || value;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve.",
-    });
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setIsLoading(true);
+
+    // Validar variáveis de ambiente
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast({
+        title: "Erro de configuração",
+        description: "O serviço de email não está configurado corretamente. Por favor, entre em contato diretamente.",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Preparar parâmetros do template
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || "Não informado",
+        subject: getSubjectLabel(formData.subject),
+        message: formData.message,
+        to_email: "geral@gruposanep.co.ao", // Email de destino
+      };
+
+      // Enviar email via EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em breve.",
+      });
+
+      // Limpar formulário
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Erro ao enviar email:", error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato diretamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const offices = [
@@ -142,9 +204,24 @@ const Contato = () => {
                   />
                 </div>
                 
-                <Button type="submit" size="lg" variant="secondary" className="w-full font-semibold">
-                  <Send className="mr-2 h-5 w-5" />
-                  Enviar Mensagem
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  variant="secondary" 
+                  className="w-full font-semibold"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Enviar Mensagem
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
