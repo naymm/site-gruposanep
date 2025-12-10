@@ -178,3 +178,5 @@ await deletarImagem(imagemId);
 4. **Vídeos**: Suporte a vídeos na galeria
 
 
+
+

@@ -76,3 +76,5 @@ COMMENT ON COLUMN imagens_noticias.ordem IS 'Ordem de exibição das imagens na 
 COMMENT ON COLUMN imagens_noticias.legenda IS 'Legenda opcional para a imagem';
 
 
+
+

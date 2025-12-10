@@ -52,7 +52,6 @@ const Header = () => {
     { title: "Talento Jovem", href: "/pessoas/talento-jovem" },
     { title: "As Nossas Pessoas", href: "/pessoas/nossas-pessoas" },
     { title: "Oportunidades e Carreira", href: "/pessoas/carreiras" },
-    { title: "Novidades", href: "/pessoas/novidades" },
   ];
 
   return (

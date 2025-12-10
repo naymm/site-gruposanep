@@ -42,3 +42,5 @@ USING (bucket_id = 'noticias');
 -- 4. Para criar usuários admin, use o Authentication no Supabase Dashboard
 
 
+
+

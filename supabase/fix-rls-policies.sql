@@ -53,3 +53,5 @@ CREATE POLICY "Usuários autenticados podem deletar notícias"
 -- SELECT * FROM pg_policies WHERE tablename = 'noticias';
 
 
+
+
