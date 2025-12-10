@@ -153,7 +153,7 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger
+                  {/* <NavigationMenuTrigger
                     className={cn(
                       "bg-transparent",
                       isScrolled
@@ -162,8 +162,8 @@ const Header = () => {
                     )}
                   >
                     Pessoas
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  </NavigationMenuTrigger> */}
+                  {/* <NavigationMenuContent>
                     <ul className="grid w-56 gap-1 p-2">
                       {peopleItems.map((item) => (
                         <li key={item.href}>
@@ -178,7 +178,7 @@ const Header = () => {
                         </li>
                       ))}
                     </ul>
-                  </NavigationMenuContent>
+                  </NavigationMenuContent> */}
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>

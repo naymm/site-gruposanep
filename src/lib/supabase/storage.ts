@@ -1,87 +1,90 @@
 /**
- * Serviço para upload de imagens no Supabase Storage
+ * Service para gerenciar uploads de arquivos no Supabase Storage
  */
 
 import { supabase } from './client';
 
-const BUCKET_NAME = 'noticias';
+export interface UploadFileResult {
+  url: string;
+  path: string;
+}
 
 /**
- * Upload de imagem para o bucket de notícias
+ * Upload de arquivo para o Supabase Storage
  */
-export async function uploadNoticiaImage(
+export async function uploadFile(
+  bucket: string,
+  folder: string,
   file: File,
-  noticiaId?: string
-): Promise<string> {
+  fileName?: string
+): Promise<UploadFileResult> {
   // Gerar nome único para o arquivo
-  const fileExt = file.name.split('.').pop();
-  const fileName = noticiaId
-    ? `${noticiaId}-${Date.now()}.${fileExt}`
-    : `temp-${Date.now()}.${fileExt}`;
-  const filePath = `${fileName}`;
+  const timestamp = Date.now();
+  const randomString = Math.random().toString(36).substring(2, 15);
+  const fileExtension = file.name.split('.').pop();
+  const finalFileName = fileName || `${timestamp}-${randomString}.${fileExtension}`;
+  const filePath = `${folder}/${finalFileName}`;
 
   // Upload do arquivo
   const { data, error } = await supabase.storage
-    .from(BUCKET_NAME)
+    .from(bucket)
     .upload(filePath, file, {
       cacheControl: '3600',
-      upsert: false,
+      upsert: false, // Não sobrescrever arquivos existentes
     });
 
   if (error) {
-    console.error('Erro no upload:', error);
+    console.error('Erro ao fazer upload:', error);
     throw new Error(`Erro ao fazer upload: ${error.message}`);
   }
 
-  // Obter URL pública
+  // Obter URL pública do arquivo
   const { data: urlData } = supabase.storage
-    .from(BUCKET_NAME)
-    .getPublicUrl(data.path);
+    .from(bucket)
+    .getPublicUrl(filePath);
 
-  return urlData.publicUrl;
+  return {
+    url: urlData?.publicUrl || '',
+    path: filePath,
+  };
 }
 
 /**
- * Deletar imagem do storage
+ * Deletar arquivo do Storage
  */
-export async function deleteNoticiaImage(imageUrl: string): Promise<void> {
-  try {
-    // Extrair o caminho do arquivo da URL
-    const url = new URL(imageUrl);
-    const pathParts = url.pathname.split('/');
-    const filePath = pathParts[pathParts.length - 1];
+export async function deleteFile(
+  bucket: string,
+  filePath: string
+): Promise<void> {
+  const { error } = await supabase.storage.from(bucket).remove([filePath]);
 
-    const { error } = await supabase.storage
-      .from(BUCKET_NAME)
-      .remove([filePath]);
-
-    if (error) {
-      console.error('Erro ao deletar imagem:', error);
-      // Não lançar erro, apenas logar (a imagem pode não existir)
-    }
-  } catch (error) {
-    console.error('Erro ao processar URL da imagem:', error);
+  if (error) {
+    console.error('Erro ao deletar arquivo:', error);
+    throw new Error(`Erro ao deletar arquivo: ${error.message}`);
   }
 }
 
 /**
- * Verificar se o bucket existe, se não, criar
+ * Upload de múltiplos arquivos
  */
-export async function ensureBucketExists(): Promise<void> {
-  const { data: buckets, error: listError } = await supabase.storage.listBuckets();
-
-  if (listError) {
-    console.error('Erro ao listar buckets:', listError);
-    return;
-  }
-
-  const bucketExists = buckets?.some(bucket => bucket.name === BUCKET_NAME);
-
-  if (!bucketExists) {
-    console.warn(`Bucket "${BUCKET_NAME}" não existe. Crie-o manualmente no Supabase Dashboard.`);
-  }
+export async function uploadMultipleFiles(
+  bucket: string,
+  folder: string,
+  files: File[]
+): Promise<UploadFileResult[]> {
+  const uploadPromises = files.map((file) => uploadFile(bucket, folder, file));
+  return Promise.all(uploadPromises);
 }
 
-
-
-
+/**
+ * Upload de imagem de notícia (função específica para compatibilidade)
+ */
+export async function uploadNoticiaImage(file: File): Promise<string> {
+  const result = await uploadFile(
+    'noticias',
+    'imagens',
+    file,
+    `noticia-${Date.now()}.${file.name.split('.').pop()}`
+  );
+  return result.url;
+}

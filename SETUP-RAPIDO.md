@@ -42,3 +42,4 @@ Veja `README-SUPABASE.md` para detalhes completos.
 
 
 
+

@@ -55,3 +55,4 @@ CREATE POLICY "Usuários autenticados podem deletar notícias"
 
 
 
+

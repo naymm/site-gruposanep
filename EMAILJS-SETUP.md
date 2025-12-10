@@ -117,3 +117,4 @@ O formulário envia os seguintes parâmetros:
 - [Documentação do EmailJS](https://www.emailjs.com/docs/)
 - [Exemplos de Templates](https://www.emailjs.com/docs/examples/reactjs/)
 
+

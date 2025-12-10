@@ -4,6 +4,8 @@
 
 export { supabase } from './client';
 export * from './services/noticias';
+export * from './services/candidaturas';
+export * from './storage';
 export * from './services/categorias';
 export * from './services/autores';
 export * from './services/galeria';

@@ -10,12 +10,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Send, Upload, X, FileText, File, CheckCircle2 } from "lucide-react";
+import { Send, Upload, X, FileText, File, CheckCircle2, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import { createCandidatura } from "@/lib/supabase/services/candidaturas";
+import { uploadFile } from "@/lib/supabase/storage";
 
 const Carreiras = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     // Dados Pessoais
     primeiroNome: "",
@@ -68,34 +71,157 @@ const Carreiras = () => {
     return <File className="w-5 h-5 text-muted-foreground" />;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Candidatura enviada!",
-      description: "A sua candidatura espontânea foi enviada com sucesso. Entraremos em contato em breve.",
-    });
-    // Reset form
-    setFormData({
-      primeiroNome: "",
-      ultimoNome: "",
-      nacionalidade: "",
-      dataNascimento: "",
-      residencia: "",
-      contacto: "",
-      contactoAlternativo: "",
-      email: "",
-      areaEducacao: "",
-      grauAcademico: "",
-      instituicao: "",
-      situacaoProfissional: "",
-      grauExperiencia: "",
-      areaAtividade: "",
-      nomeEmpresa: "",
-      funcaoCargo: "",
-      curriculumVitae: null,
-      bilheteIdentidade: null,
-      certificados: null,
-    });
+    setIsLoading(true);
+
+    try {
+      // Validar variáveis de ambiente do Supabase
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      if (!supabaseUrl || !supabaseKey) {
+        toast({
+          title: "Erro de configuração",
+          description: "O serviço não está configurado corretamente. Por favor, entre em contato diretamente.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      // Upload dos arquivos para o Supabase Storage
+      let curriculumVitaeUrl: string | undefined;
+      let bilheteIdentidadeUrl: string | undefined;
+      let certificadosUrl: string | undefined;
+
+      // Upload do Curriculum Vitae
+      if (formData.curriculumVitae) {
+        try {
+          const curriculumResult = await uploadFile(
+            'candidaturas',
+            'curriculums',
+            formData.curriculumVitae,
+            `${formData.email}-cv-${Date.now()}.${formData.curriculumVitae.name.split('.').pop()}`
+          );
+          curriculumVitaeUrl = curriculumResult.url;
+        } catch (error) {
+          console.error('Erro ao fazer upload do CV:', error);
+          toast({
+            title: "Erro ao enviar arquivo",
+            description: "Não foi possível fazer upload do Curriculum Vitae. Por favor, tente novamente.",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // Upload do Bilhete de Identidade
+      if (formData.bilheteIdentidade) {
+        try {
+          const bilheteResult = await uploadFile(
+            'candidaturas',
+            'bilhetes',
+            formData.bilheteIdentidade,
+            `${formData.email}-bi-${Date.now()}.${formData.bilheteIdentidade.name.split('.').pop()}`
+          );
+          bilheteIdentidadeUrl = bilheteResult.url;
+        } catch (error) {
+          console.error('Erro ao fazer upload do BI:', error);
+          toast({
+            title: "Erro ao enviar arquivo",
+            description: "Não foi possível fazer upload do Bilhete de Identidade. Por favor, tente novamente.",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // Upload dos Certificados (opcional)
+      if (formData.certificados) {
+        try {
+          const certificadosResult = await uploadFile(
+            'candidaturas',
+            'certificados',
+            formData.certificados,
+            `${formData.email}-cert-${Date.now()}.${formData.certificados.name.split('.').pop()}`
+          );
+          certificadosUrl = certificadosResult.url;
+        } catch (error) {
+          console.error('Erro ao fazer upload dos certificados:', error);
+          // Não bloquear o envio se os certificados falharem (são opcionais)
+          toast({
+            title: "Aviso",
+            description: "Não foi possível fazer upload dos certificados, mas a candidatura será enviada.",
+            variant: "default",
+          });
+        }
+      }
+
+      // Criar candidatura no Supabase
+      await createCandidatura({
+        primeiro_nome: formData.primeiroNome,
+        ultimo_nome: formData.ultimoNome,
+        nacionalidade: formData.nacionalidade,
+        data_nascimento: formData.dataNascimento,
+        residencia: formData.residencia,
+        contacto: formData.contacto,
+        contacto_alternativo: formData.contactoAlternativo || undefined,
+        email: formData.email,
+        area_educacao: formData.areaEducacao,
+        grau_academico: formData.grauAcademico,
+        instituicao: formData.instituicao,
+        situacao_profissional: formData.situacaoProfissional,
+        grau_experiencia: formData.grauExperiencia,
+        area_atividade: formData.areaAtividade,
+        nome_empresa: formData.nomeEmpresa,
+        funcao_cargo: formData.funcaoCargo,
+        curriculum_vitae_url: curriculumVitaeUrl,
+        bilhete_identidade_url: bilheteIdentidadeUrl,
+        certificados_url: certificadosUrl,
+      });
+
+      toast({
+        title: "Candidatura enviada!",
+        description: "A sua candidatura espontânea foi enviada com sucesso. Entraremos em contato em breve.",
+      });
+
+      // Reset form
+      setFormData({
+        primeiroNome: "",
+        ultimoNome: "",
+        nacionalidade: "",
+        dataNascimento: "",
+        residencia: "",
+        contacto: "",
+        contactoAlternativo: "",
+        email: "",
+        areaEducacao: "",
+        grauAcademico: "",
+        instituicao: "",
+        situacaoProfissional: "",
+        grauExperiencia: "",
+        areaAtividade: "",
+        nomeEmpresa: "",
+        funcaoCargo: "",
+        curriculumVitae: null,
+        bilheteIdentidade: null,
+        certificados: null,
+      });
+    } catch (error) {
+      console.error('Erro ao enviar candidatura:', error);
+      toast({
+        title: "Erro ao enviar candidatura",
+        description: error instanceof Error 
+          ? error.message 
+          : "Ocorreu um erro ao enviar sua candidatura. Por favor, tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -237,7 +363,7 @@ const Carreiras = () => {
                         <SelectItem value="licenciatura">Licenciatura</SelectItem>
                         <SelectItem value="mestrado">Mestrado</SelectItem>
                         <SelectItem value="doutoramento">Doutoramento</SelectItem>
-                        <SelectItem value="tecnico">Técnico</SelectItem>
+                        <SelectItem value="tecnico">Técnico Médio</SelectItem>
                         <SelectItem value="outro">Outro</SelectItem>
                       </SelectContent>
                     </Select>
@@ -380,9 +506,24 @@ const Carreiras = () => {
 
               {/* Submit Button */}
               <div className="flex justify-end pt-6 border-t border-border">
-                <Button type="submit" size="lg" variant="secondary" className="font-semibold">
-                  <Send className="mr-2 h-5 w-5" />
-                  Enviar Candidatura
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  variant="secondary" 
+                  className="font-semibold"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Enviar Candidatura
+                    </>
+                  )}
                 </Button>
               </div>
             </form>
