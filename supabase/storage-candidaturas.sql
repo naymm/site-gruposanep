@@ -47,3 +47,5 @@ CREATE POLICY "Usuários autenticados podem atualizar arquivos de candidaturas"
   TO authenticated
   USING (bucket_id = 'candidaturas');
 
+
+

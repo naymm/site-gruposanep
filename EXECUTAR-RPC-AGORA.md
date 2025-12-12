@@ -105,3 +105,5 @@ Se a função RPC continuar dando problemas, use RLS direto:
 - [ ] Página recarregada (hard refresh)?
 - [ ] Formulário testado?
 
+
+

@@ -42,3 +42,5 @@ CREATE POLICY "Usuários autenticados podem deletar candidaturas"
 -- Execute esta query para verificar:
 -- SELECT * FROM pg_policies WHERE tablename = 'candidaturas';
 
+
+

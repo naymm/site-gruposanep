@@ -149,3 +149,5 @@ curl -X POST 'https://seu-projeto.supabase.co/rest/v1/rpc/criar_candidatura' \
 
 Se o curl funcionar, o problema é no código TypeScript.
 
+
+

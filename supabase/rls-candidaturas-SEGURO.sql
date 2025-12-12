@@ -170,3 +170,5 @@ DELETE FROM candidaturas WHERE email = 'joao@teste.com';
 --
 -- ============================================
 
+
+

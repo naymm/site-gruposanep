@@ -103,3 +103,5 @@ await createCandidatura({
 
 Após executar o script SQL, tudo deve funcionar. Seu código já está correto!
 
+
+

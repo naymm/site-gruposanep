@@ -94,3 +94,5 @@ Após executar o script:
    ```
    ⚠️ **Atenção**: Reabilite o RLS após os testes!
 
+
+

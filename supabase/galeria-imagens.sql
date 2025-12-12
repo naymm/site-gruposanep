@@ -79,3 +79,5 @@ COMMENT ON COLUMN imagens_noticias.legenda IS 'Legenda opcional para a imagem';
 
 
 
+
+

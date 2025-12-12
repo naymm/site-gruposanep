@@ -224,3 +224,5 @@ await createCandidatura({
 - ✅ **Validações** no backend
 - 📝 **Auditoria** facilitada
 
+
+

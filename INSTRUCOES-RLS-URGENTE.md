@@ -140,3 +140,5 @@ Se ainda não funcionar após seguir todos os passos:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
 
+
+

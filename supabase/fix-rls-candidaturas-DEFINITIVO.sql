@@ -114,3 +114,5 @@ ORDER BY cmd;
 -- Se funcionar, você verá uma linha inserida. Depois pode deletar:
 -- DELETE FROM candidaturas WHERE email = 'teste@teste.com';
 
+
+

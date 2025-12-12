@@ -199,3 +199,5 @@ Após executar o script SQL, teste localmente:
 4. Verifique console do navegador para outros erros
 5. Verifique logs do Supabase (Dashboard → Logs)
 
+
+

@@ -182,3 +182,5 @@ SELECT public.criar_candidatura(
 );
 */
 
+
+
